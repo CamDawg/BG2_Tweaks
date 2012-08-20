@@ -22,7 +22,8 @@
     @13 = ~Content Changes~
     @14 = ~This component is only for Tutu or BGT or Baldur's Gate: Enhanced Edition.~
     @15 = ~This component is only for Tutu.~
-    @16 = ~The functionality of this component is either already included or superceded by one of your already installed mods.~
+    @16 = ~The functionality of this component is either already included 
+            or superceded by one of your already installed mods.~
     @17 = ~Requires the Make +x/+y Weapons Consistent component to be installed.~
     @18 = ~This component has been deprecated.~
     @19 = ~Cam's House Rules~
@@ -471,7 +472,7 @@ Usable By:  Shapeshifter~
 @204000 = ~Universal Clubs~
 
 @205000 = ~Description Updates for Universal
-Clubs Component~
+  Clubs Component~
 @205001 = ~Requires Universal Clubs to be installed~
 @205002 = ~Ashes of Embers is installed, which already adjusts club descriptions.~
 
@@ -496,7 +497,7 @@ Thieving Abilities in Heavy Armor' Component~
 @212000 = ~Allow Arcane Spellcasting in Heavy Armor~
 
 @213000 = ~Alter Item Descriptions for 'Allow Arcane 
-Spellcasting in Armor' Component~
+  Spellcasting in Armor' Component~
 
 @214000 = ~Expanded Dual-Class Options~
 @214001 = ~barbarian / mage~
@@ -552,7 +553,8 @@ WARNING:  Magical katanas are very rare in Baldur's Gate 2!
 @216100 = ~BG-Style Weapon Proficiencies, With Weapon Styles (the bigg)~
 @216200 = ~BG-Style Weapon Proficiencies, Without Weapon Styles (the bigg)~
 
-@217000 = ~Cast Spells from Scrolls (and Other Items) at Character Level~
+@217000 = ~Cast Spells from Scrolls (and Other Items) 
+at Character Level~
 
 @218000 = ~Un-Nerfed THAC0 Table, Saving Throws, Grand-Mastery, and Arcane, Divine Spell Progression (Blucher)~
 // ^^ this component deprecated, but the strings below still needed for the components that replace it

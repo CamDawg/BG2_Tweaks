@@ -1,5 +1,6 @@
 // bogstandard bg2 conflicts; don't bother if Tutu/BGEE game
-ACTION_IF NOT ((FILE_EXISTS_IN_GAME ~_sw1h01.itm~) OR (FILE_EXISTS_IN_GAME ~oh9350.are~)) THEN BEGIN
+ACTION_IF ((NOT FILE_EXISTS_IN_GAME ~_sw1h01.itm~) AND
+           (NOT FILE_EXISTS_IN_GAME ~oh9350.are~)) THEN BEGIN
 
   //anomen-keldorn
   COPY_EXISTING ~anomen.bcs~  ~override~
@@ -41,15 +42,7 @@ ACTION_IF NOT ((FILE_EXISTS_IN_GAME ~_sw1h01.itm~) OR (FILE_EXISTS_IN_GAME ~oh93
     BUT_ONLY_IF_IT_CHANGES
   EXTEND_TOP ~edwin.bcs~   ~BG2_Tweaks/baf/edwivaly.baf~
   EXTEND_TOP ~valygar.bcs~ ~BG2_Tweaks/baf/edwivaly.baf~
-  
-  // stop haer'dalis-aerie romance from starting
-/*  COPY_EXISTING ~haerdali.bcs~ ~override~
-    DECOMPILE_BCS_TO_BAF
-      REPLACE_TEXTUALLY ~Global("RomanceConflict","GLOBAL",0)~ ~False()~
-    COMPILE_BAF_TO_BCS
-    BUT_ONLY_IF_IT_CHANGES
-  EXTEND_TOP ~haerdali.bcs~ ~BG2_Tweaks/baf/haerdali.baf~
-  */
+
   //viconia-keldorn
   COPY_EXISTING ~viconia.bcs~ ~override~
                 ~keldorn.bcs~ ~override~

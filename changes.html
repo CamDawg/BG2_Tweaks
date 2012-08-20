@@ -8,6 +8,20 @@
 
 <body>
 
+<h3>v9.05 - integrated the following fixes:</h3>
+
+<ul>
+<li>Rolled back 2da lookups for ToB-style NPCs for arrays instead. Kids, don't code when you're tired because you'll make poor decisions.</li>
+<li>Also extended bard pickpocket table to 200/level 50 for armor/thieving, stuck in a library and re-used it for remove XP cap</li>
+<li>Rechecked logic in happy patch not applying to BGEE, removed commented-out code</li>
+<li>Rejuggled armor assignments in thieving/arcane armor tweaks so that I could have one library for both with no stray assignments in the tp2 itself</li>
+<li>Updated header (webmaster@gibberlings3.net is now Kat's), removed cruft</li>
+<li>Avatar morphing script was no longer AUTO_TRA'ing, so did it another way</li>
+<li>BG1 walking speeds was missing Aerie since she starts as an ogre (this really should pick up polymorphs/avatar changes, but no one uses this component anyway)</li>
+<li>Rolled back source change for xr2400/xr2600.are copies (changed to work in BGEE but chose an area file that doesn't exist in BG2)</li>
+<li>Streamlined mod NPC script patching in Fate Spirit tweak</li>
+<li>Tweaked setup.tra for bad line breaks in the DOS window</li>
+</ul>
 <h3>v9.04 - integrated the following fixes:</h3>
 
 <ul>

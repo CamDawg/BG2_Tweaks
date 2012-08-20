@@ -1,803 +1,10 @@
 BACKUP ~BG2_Tweaks/backup~ // location to store files for
-AUTHOR ~webmaster@gibberlings3.net~ // email address displayed if install fails
+AUTHOR ~pcamagna@yahoo.com~ // email address displayed if install fails
 
-/* unique combos as of v3:
-SoA:  2^57 * 3^12 * 4^3 * 5^1 =    24,508,390,293,190,694,550,896,640
-ToB:  2^61 * 3^12 * 4^3 * 5^1 =   392,134,244,691,051,112,814,346,240
-Tutu: 2^51 * 3^12 * 4^3       =        76,588,719,666,220,920,471,552
-BGT:  2^63 * 3^12 * 4^3 * 5^1 = 1,568,536,978,764,204,451,257,384,960
-*/
-
-VERSION ~v9.04~
+VERSION ~v9.05~
 
 README ~bg2_tweaks/readme-bg2tweaks.html~
 
-/*
-ALLOW_MISSING
-
-// p&p protection
-~cdclck31.itm~
-~cdring41.itm~
-
-// storekeeper
-~tem2601.sto~
-
-~_ajanti.cre~ // tob style npcs compatibility code
-~_alora.cre~
-~_branwe.cre~
-~_coran.cre~
-~_dynahe.cre~
-~_edwin.cre~
-~_faldor.cre~
-~_garric.cre~
-~_jaheir.cre~
-~_imoen1.cre~
-~_kagain.cre~
-~_khalid.cre~
-~_kivan.cre~
-~_minsc.cre~
-~_montar.cre~
-~_quayle.cre~
-~_safana.cre~
-~_sharte.cre~
-~_skie.cre~
-~_tiax.cre~
-~_viconi.cre~
-~_xan.cre~
-~_xzar.cre~
-~_yeslic.cre~
-~ajanti.cre~
-~alora.cre~
-~branwe.cre~
-~coran.cre~
-~dynahe.cre~
-~edwin.cre~
-~faldor.cre~
-~garric.cre~
-~jaheir.cre~
-~imoen.cre~
-~imoen1.cre~
-~kagain.cre~
-~khalid.cre~
-~kivan.cre~
-~minsc.cre~
-~montar.cre~
-~bgquayle.cre~
-~safana.cre~
-~sharte.cre~
-~skie.cre~
-~tiax.cre~
-~viconi.cre~
-~bgxan.cre~
-~bgxzar.cre~
-~yeslic.cre~
-~d0alassa.cre~
-~m#ambr10.cre~
-~subru05.cre~
-~jcbruce.cre~
-~chloe7.cre~
-~c!delai10.cre~
-~sufinch1.cre~
-~fwghar04.cre~
-~sc#hub.cre~
-~j#indi01.cre~
-~j#klsy09.cre~
-~keto08.cre~
-~kido.cre~
-~kindrek.cre~
-~r!kit07.cre~
-~nath07.cre~
-~sk#neht1.cre~
-~sola5.cre~
-~willyb.cre~
-~mgwika.cre~
-~tlxan.cre~
-~o#xan09.cre~
-~sdnpc12.cre~
-
-~ar2812.bcs~ // miscellaneous
-~_ar3601.bcs~
-~_b1-3.itm~
-~_bimoen.dlg~
-~bimoen.dlg~
-~_s1-10.itm~
-
-~baldur25.bcs~ // tob stuff
-~blun26.itm~
-~blun27.itm~
-~blun31.itm~
-~brdflute.itm~
-~chalshld.itm~
-~chalarm.itm~
-~chan19.itm~
-~chan20.itm~
-~chan21.itm~
-~clck31.itm~
-~elfhelm.itm~
-~leat23.itm~
-~leat24.itm~
-~palplat.itm~
-~plat21.itm~
-~plat20.itm~
-~plat22.itm~
-~plat23.itm~
-~ring41.itm~
-~secret05.itm~
-~shararm.itm~
-~shld31.itm~
-~shld32.itm~
-~sw1h62.itm~
-~sw1h63.itm~
-~sw1h64.itm~
-~sw1h65.itm~
-~sw1h70.itm~
-~sw1h71.itm~
-~sw1h72.itm~
-~sw1h75.itm~
-~tamchain.itm~
-
-~spwish07.spl~ // ToB spells
-~spwish46.spl~
-
-~clabma01.2da~ // 2das for remove xp cap
-~clabma02.2da~
-~clabma03.2da~
-~clabma04.2da~
-~clabma05.2da~
-~clabma06.2da~
-~clabma07.2da~
-~clabma08.2da~
-~clabma09.2da~
-
-~_ar0300.bcs~ // tutu/bgt compat
-~ar7400.bcs~
-
-~_amul14.itm~ // tutu items
-~cdkat2.itm~
-~_chan01.itm~
-~_chan02.itm~
-~_chan03.itm~
-~_chan04.itm~
-~_chan05.itm~
-~_chan06.itm~
-~_chan07.itm~
-~_clck01.itm~
-~_clck02.itm~
-~_helm01.itm~
-~_helm08.itm~
-~_helm09.itm~
-~_helm10.itm~
-~_helm11.itm~
-~_helm12.itm~
-~_helm13.itm~
-~_helm15.itm~
-~_ichan01.itm~
-~_ichan04.itm~
-~_ihelm01.itm~
-~_ihelm10.itm~
-~_ileat04.itm~
-~_iplat01.itm~
-~_ishld02.itm~
-~_ishld03.itm~
-~_leat01.itm~
-~_leat02.itm~
-~_leat03.itm~
-~_leat04.itm~
-~_leat05.itm~
-~_leat07.itm~
-~_leat08.itm~
-~_leat09.itm~
-~_misc86.itm~
-~_plat01.itm~
-~_plat02.itm~
-~_plat04.itm~
-~_plat05.itm~
-~_plat06.itm~
-~_plat07.itm~
-~_plat08.itm~
-~_plat98.itm~
-~_ring06.itm~
-~_ring07.itm~
-~_ring25.itm~
-~_shld01.itm~
-~_shld02.itm~
-~_shld03.itm~
-~_shld04.itm~
-~_shld05.itm~
-~_shld06.itm~
-~_shld07.itm~
-~_shld08.itm~
-~_shld09.itm~
-~_shld10.itm~
-~_shld11.itm~
-~_shld12.itm~
-~_shld13.itm~
-~_shld14.itm~
-~_shld15.itm~
-~_shld16.itm~
-~_shld18.itm~
-~_shld19.itm~
-~_shld99.itm~
-~_sw1h01.itm~
-~_sw1h02.itm~
-~_sw1h03.itm~
-~_sw1h18.itm~
-~_sw1h01.itm~
-~_sw1h02.itm~
-~_sw1h03.itm~
-~_sw1h18.itm~
-~_sw1h01.itm~
-~_sw1h02.itm~
-~_sw1h03.itm~
-~_sw1h18.itm~
-
-~_blun09.itm~ // totsc items
-~_blun11.itm~
-~_chan07.itm~
-~_dagg10.itm~
-~_helm15.itm~
-~_leat09.itm~
-~_leat10.itm~
-~_plat08.itm~
-~_plat98.itm~
-~_shld19.itm~
-~_shld20.itm~
-~_slng03.itm~
-~_staf05.itm~
-~_staf06.itm~
-~_staf07.itm~
-~_staf08.itm~
-~_sw1h18.itm~
-~_sw1h21.itm~
-~_sw1h24.itm~
-~_sw2h07.itm~
-
-// ajoc's minimod
-~agbladen.itm~ // blade of the night (katana)
-
-// alex macintosh
-~bitswe.itm~ // "bitter sweet" katana + 3 (katana)
-~chanethe.itm~ // ethereal chain mail +5 (chain mail, no penalty to thieves or mages when wearing)
-~elfmail.itm~ // elven mithril +5 (elven chain mail armour, "this superior elven chain does not interfere with your mage or thief skills. in fact, it is so light and wieldy it augments your spellcasting and thief prowess.")
-~kreeplat.itm~ // full metal plate of stone +2 (full plate armour)
-~serend.itm~ // "serendipity" katana + 4 (katana)
-
-// amber
-~m#asleat.itm~ // apprentice shadow armor (studded leather armour, +5% hide in shadows)
-~m#buck2.itm~ // buckler +2, thorard's saucer (buckler)
-
-// ariena
-~ararmor.itm~ // ariena's armor (hide armour)
-
-~band01.itm~   // ashes of embers
-~band02.itm~
-~band03.itm~
-~band04.itm~
-~flat01.itm~
-~flat02.itm~
-~flat03.itm~
-~flat04.itm~
-~j#spli06.itm~
-~scal01.itm~
-~scal02.itm~
-~scal03.itm~
-~scal04.itm~
-
-// beyond the law
-~kiyoarm1.itm~ // verdant vigil (scale armour)
-~kiyoarm2.itm~ // verdant vigil +2 (scale armour)
-~kiyoarm3.itm~ // verdant vigil +4 (scale armour)
-~yoshkata.itm~ // yoshimo's katana +2 (katana)
-
-~x#garch.itm~  // bg1 npc v7
-~x#garch2.itm~
-~x#ajshld.itm~
-~x#fash01.itm~
-
-~ardeadx.itm~ // bgt-bp + dsotsc + sobh
-~bleat01.itm~
-~bleat02.itm~
-~bleat03.itm~
-~blood.itm~
-~bsingchn.itm~
-~cb351g03.itm~
-~cbbnlch8.itm~
-~cbcl013.itm~
-~cbcl027.itm~
-~cbcl033.itm~
-~cblyplat.itm~
-~cblyshld.itm~
-~cbmilt01.itm~
-~cbmilt03.itm~
-~cbmilt11.itm~
-~cbmilt13.itm~
-~cbmilt21.itm~
-~cbsbmltk.itm~
-~cbsbmltr.itm~
-~cbsbmlts.itm~
-~cbsbmltu.itm~
-~cbsbmltv.itm~
-~cbsbmltw.itm~
-~cbsbmltx.itm~
-~cbsbmlty.itm~
-~cbshsoub.itm~
-~cbuhgvar.itm~
-~cbuhgvct.itm~
-~celebros.itm~
-~chan12zz.itm~
-~chan6xx.itm~
-~ddhrtles.itm~
-~dplate.itm~
-~dschan01.itm~
-~dschan02.itm~
-~dschan03.itm~
-~dschan04.itm~
-~dscoarm.itm~
-~dscryarm.itm~
-~dscuarm.itm~
-~dscushld.itm~
-~dsebplat.itm~
-~dsfearm.itm~
-~dsjearm.itm~
-~dsjeshld.itm~
-~dskearm.itm~
-~dskorim.itm~
-~dsleat01.itm~
-~dsshld01.itm~
-~dsshld02.itm~
-~dsshld51.itm~
-~dsshld52.itm~
-~dsshld53.itm~
-~dsshld54.itm~
-~dsthrarm.itm~
-~dswrkarm.itm~
-~efml01.itm~
-~elvarmx.itm~
-~flamplat.itm~
-~glory.itm~
-~iceplat.itm~
-~illas04.itm~
-~jera.itm~
-~jers.itm~
-~leatraid.itm~
-~maillif.itm~
-~minbalpl.itm~
-~minplatx.itm~
-~mystery.itm~
-~plat05xx.itm~
-~platblue.itm~
-~platraid.itm~
-~platsar.itm~
-~raidplat.itm~
-~ritdrag.itm~
-~runeplat.itm~
-~samarmx1.itm~
-~sgchan06.itm~
-~shldgraz.itm~
-~shldraid.itm~
-~shldxz.itm~
-~sileat.itm~
-~zilfgt.itm~
-
-// bom item pack
-~o!bom001.itm~ // mother’s curse +1 (plate armour)
-~o!bom002.itm~ // ranger mail +5 (chain mail armour, allows hide/move silently to be used unrestricted)
-~o!bom003.itm~ // tangor’s mystical chain (chain mail)
-~o!bom004.itm~ // abdel's mage chain (chain mail armour, 20% chance of miscast magic)
-~o!bom005.itm~ // abdel's mage chain +1 (chain mail armour, 30% chance of miscast magic)
-~o!bom006.itm~ // abdel's mage chain +2 (chain mail armour, 40% chance of miscast magic)
-~o!bom007.itm~ // abdel's mage plate (plate armour, 30% chance of miscast magic)
-~o!bom008.itm~ // abdel's mage plate +1 (plate armour, 40% chance of miscast magic)
-~o!bom009.itm~ // abdel's mage plate +2 (plate armour, 50% chance of miscast magic)
-~o!bom011.itm~ // troll hide +4 (hide armour)
-~o!bom027.itm~ // beren's buckler of baleful woe (buckler)
-~o!bom035.itm~ // blade of crimson cat +3 (bastard sword)
-~o!bom036.itm~ // blade of the watch (bastard sword)
-~o!bom037.itm~ // the black sword: "arkadion" (bastard sword)
-~o!bom039.itm~ // warrior blade +3: mollusken's bone basher (katana)
-
-~g#leat01.itm~ // cassius npc
-
-// check the bodies
-~cbbdarmr.itm~ // blue dragon plate (plate armour)
-~cbchanp4.itm~ // chain mail +4 (chain mail)
-~cbmhshld.itm~ // large shield +3 (large shield)
-~cbmtchan.itm~ // chain of drakkas' fury (chain mail, "spell failure bonus: 10%, special: spellcasting and thieving skills can be performed without penalties while wearing drakkas' chain armor.")
-~cbmtswbs.itm~ // masterwork bastard sword (bastard sword)
-~cbmtswkt.itm~ // masterwork katana (katana)
-~cbpdofcm.itm~ // shield of the purple dragon (medium shield)
-~cbplat13.itm~ // gorgon plate +5 (plate armour)
-~cbshldwk.itm~ // waukeen's defender (medium shield?)
-~cbsnwmdn.itm~ // the snow maiden's reaver (bastard sword)
-~cbtempus.itm~ // holy shield of tempus (large shield)
-~cbtsch01.itm~ // chain mail +5 (chain mail armour)
-~cbtspt01.itm~ // full plate mail +5 (full plate mail armour)
-~cbtssd01.itm~ // large shield +5 (large shield)
-~cbtsst01.itm~ // splint mail +4 (splint mail)
-~cbwtni5a.itm~ // shield of belvin (large shield?)
-~cbwtni6a.itm~ // sword of belvin (bastard sword)
-~cbxtgcdd.itm~ // masterwork chain mail armor +1 (chain mail armour)
-~cbxtshdd.itm~ // masterwork leather armor +4 (studded leather armour)
-
-// com bg adventure pack
-~cmleat5.itm~ // nature's divine (leather armour)
-~cmshld01.itm~ // shield +3 (kite/tower/body shield)
-~machan01.itm~ // splint mail, mystra's armor (splint mail)
-~macmle01.itm~ // woodland armor (leather armour)
-~macmle02.itm~ // studded leather, stormcloud (studded leather armour)
-~maplat02.itm~ // dwarven mithril plate (plate armour)
-~mashld01.itm~ // large mithril shied +3 (large shield)
-~mplat01.itm~ // king's plate mail +5 (plate armour)
-
-// com dsotc revision
-~brueplt1.itm~ // bruenor's armor, plate mail +2 (plate armour)
-~brueshld.itm~ // small shield +1 (small shield)
-~chands01.itm~ // chain mail +2, blessed chain mail (chain mail)
-~chands05.itm~ // sukien holy armor (splint mail armour)
-~chands06.itm~ // elven chainmail +1 (elven chain mail)
-~chands08.itm~ // crusaders armor (splint mail armour)
-~chands09.itm~ // chain mail +3 (chain mail)
-~dragslay.itm~ // sword of balduran (bastard sword)
-~drowchn1.itm~ // drow adamantite mesh armor +1 (drow mesh armour)
-~drowchn2.itm~ // drow adamantite mesh armor +2 (drow mesh armour)
-~drowchn3.itm~ // drow adamantite mesh armor +3 (drow mesh armour)
-~drowplt1.itm~ // drow adamantite plate armor +3 (drow plate armour)
-~drowplt2.itm~ // drow adamantite plate armor +4 (drow plate armour)
-~drowplt3.itm~ // drow adamantite plate armor +5 (drow plate armour)
-~drowshd1.itm~ // drow adamantite buckler +1 (drow buckler)
-~drowshd2.itm~ // drow adamantite buckler +2 (drow buckler)
-~drowshd3.itm~ // drow adamantite buckler +3 (drow buckler)
-~ebonplt.itm~ // full plate armor +1: 'ebon plate (full plate armour)
-~gnwml.itm~ // gnomish workman's leather +2 (studded leather armour)
-~katan1.itm~ // katana +2 "masamune" (katana 2handed)
-~katan2.itm~ // katana +4, "muramasa" (katana 2handed)
-~korim.itm~ // splint mail armor +4 - korim's skin (splint mail armour)
-~leat08a.itm~ // improved shadow armor (shadow studded armour with +15% hide in shadows)
-~leata7.itm~ // studded leather armor +3 (studded leather armour)
-~leatds01.itm~ // armor of thorns (studded leather armour)
-~leatds02.itm~ // cúchoinneach personal leather armor +4 (leather armour)
-~leatds03.itm~ // thorfinn's hide armor (hide armour)
-~leatds04.itm~ // keiria silverstring's studded leather bard armor +1 ("leather +1 protection and gives her the ability to cast spells while wearing it.")
-~leatds05.itm~ // cúchoinneach personal leather armor +4 (leather armour)
-~platds01.itm~ // crystal plate mail (plate armour)
-~platds03.itm~ // ferthgil's dwarven mithril plate battle armor (plate armour)
-~platds04.itm~ // conchobhair strongblade's blessed plate mail armor (plate armour
-~platds05.itm~ // plate mail +3 : 'the practical defense (plate armour)
-~shld51.itm~ // small shield +2 'sun shield' (small shield)
-~shld52.itm~ // medium shield +2 [/i](medium shield)[/i]
-~shld53.itm~ // medium shield +2 'heart of the dragon' (medium shield)
-~shld54.itm~ // large shield +2, +7 vs. missiles: 'the wall' (large shield)
-~shldds01.itm~ // cúchoinneach's small shield +3 "the moon" (small shield)
-~slayer1.itm~ // small shield +2 (small shield)
-~slayer3.itm~ // jet'laya's chainmail (chain mail armour)
-~sw1h18.itm~ // sword of balduran (bastard sword)
-~sw1hds01.itm~ // champion sword (bastard sword)
-~warlkarm.itm~ // stormcloud "kraken's bane" (leather armour)
-~wlfleat.itm~ // wulfgar's fur armor (leather armour)
-~wulfhide.itm~ // wulfgar's fur armor (leather armour)
-
-// com encounters
-~coma11.itm~ // green dragon's plate (plate armour)
-~ubswd5a.itm~ // cancerous bastard sword +4 (bastard sword)
-~ucmgch01.itm~ // drow chain +3 (elven chain mail, can cast spells faster too, does not decay in sunlight)
-~ucmgch02.itm~ // drow admantine chain +5 (drow elven chain mail, does not decay on surface)
-~ucmgle01.itm~ // woodland armor +6 (studded leather, druid usable, +20% bonus to hide in shadows)
-~ucmgpl01.itm~ // winter king's plate (plate armour)
-~ucmgsh01.itm~ // medium shield +3 (medium shield)
-~ucmgsh02.itm~ // drow shield +3 (medium shield)
-~ucmgsw02.itm~ // katana +3, "el tel'lerian" (katana)
-~ucmgsw04.itm~ // katana +4 "toran el desiade" (katana)
-~ucmgsw11.itm~ // katana +4 death's bane (katana)
-
-// com item upgrade
-~maforg07.itm~ // improved chainmail +3, chainmail +3: mail of the dead (chainmail)
-~mapla001.itm~ // duragons plate +4 (plate armour)
-
-~gcmch01.itm~ // dark ritual
-~gcmpl01.itm~
-~gcmsh01.itm~
-~gcmsh02.itm~
-~cmgcha01.itm~
-~cmgforg7.itm~
-~cmgforg8.itm~
-
-// tdd
-~ardeadx.itm~ // armour of the dead +3 (leather armour)
-~blood.itm~ // bathed in blood (plate armour)
-~bsingchn.itm~ // mirathar (bladesinger chainmail)
-~celebros.itm~ // mail of celebros (splint armour)
-~deathreb.itm~ // death reborn (bastard sword)
-~flamplat.itm~ // plate of smoldering (plate armour)
-~glory.itm~ // the glory of suffering (plate armour)
-~guardshz.itm~ // soul guard (tower shield)
-~iceplat.itm~ // ice plate (plate armour)
-~kibaxx.itm~ // tuki kiba (katana)
-~king.itm~ // winter king's plate (hide armour)
-~orrshld.itm~ // orrick's rhino beetle shield (tower shield)
-~platblue.itm~ // blue dragon scale (scale armour)
-~samarmx1.itm~ // samurai armour ("steel bands have been masterfully interlaced with strips of hardened leather for this light yet resilient suit of armor.")
-~shar20.itm~ // blade master leather (leather armour)
-~shldred.itm~ // the red knight's shield (medium shield)
-~swanarm.itm~ // black swan armor (chain armour?)
-~swzzz1.itm~ // elemental life (katana)
-~swzzz2.itm~ // elemental death (katana)
-~trollarm.itm~ // troll flesh (hide armour?)
-~ushld3b.itm~ // storming shield +3 (tower shield)
-~waukeen.itm~ // waukeen's defender (small shield)
-~zzg7ts.itm~ // trollslayer (bastard sword)
-
-~platj4.itm~ // deeper shadows of amn: red dragon grothgar component
-
-~coma04.itm~ // desecration of souls
-~coma05.itm~
-~coma06.itm~
-~coma07.itm~
-~coms01.itm~
-~coms02.itm~
-~platgr01.itm~
-
-// domains of the dead
-~metcrys.itm~ // crystal sword +4 (bastard sword)
-
-~xarm001.itm~ // exenem's addon
-~xarm002.itm~
-~xarm003.itm~
-~xarm004.itm~
-~xarm005.itm~
-~xarm006.itm~
-
-~deitm053.itm~ // fr-rov
-~deitm086.itm~
-~deitm087.itm~
-~deitm088.itm~
-~deitm089.itm~
-~deitm090.itm~
-~deitm096.itm~
-~deitm119.itm~
-~deitm120.itm~
-~deitm121.itm~
-~deitm122.itm~
-
-~fwchan01.itm~  // fw item pack
-~fwchan02.itm~
-~fwchan03.itm~
-~fwchan04.itm~
-~fwleat01.itm~
-~fwleat02.itm~
-~fwleat03.itm~
-~fwleat04.itm~
-~fwleat05.itm~
-~fwleat06.itm~
-~fwplat01.itm~
-~fwplat02.itm~
-~fwplat03.itm~
-~fwplat04.itm~
-~fwshld01.itm~
-
-// ghrey's im7
-~j#blaz01.itm~ // bastard sword +1, "hell's maw" (bastard sword)
-
-~juschan.itm~  // tgc v1.70
-~_juschan.itm~
-~grblun.itm~
-~_grblun.itm~
-
-// iiitem
-~i1ch001.itm~ // smoke armor (robe type?)
-~i1ch002.itm~ // voice of doom (chain mail)
-~i1lt001.itm~ // skeleton ribcage (leather armour?)
-~i1lt002.itm~ // anti-imprisonment armor (leather armour?, move silently: -20, lock picking: -10, find/remove traps: -10, pick pockets: -10)
-~i1pl001.itm~ // gubbie armor (plate armour)
-
-// improved anvil
-~s!chan01.itm~ // supreme chain mail +6 (chain mail armour)
-~s!chan02.itm~ // eternal melody +5 (chain armour, can cast spells in it for bards)
-~s!jan01.itm~ // jansen adventure wear (enhanced) (as per jan jansen's existing armour)
-~s!leat01.itm~ // improved human flesh (leather armour)
-~s!leat02.itm~ // spirit of the night (leather armour)
-~s!leat03.itm~ // improved corthala family armor (as per valygar's existing armour)
-~s!plat01.itm~ // enhanced pride of the legion +4 (full plate armor)
-~s!plat02.itm~ // huskar lord's armor +5 (full plate armour)
-~s!plat03.itm~ // improved ankheg mail (as per improved ankheg mail in item upgrade)
-~s!shld01.itm~ // delryn family legacy +4 (as per anomen's existing shield)
-~s!shld02.itm~ // supreme shelter +6 (tower shield)
-~s!shld03.itm~ // buckler +3 (buckler)
-~s!sw01.itm~ // corthala family true blade +5 (katana)
-~s!sw13.itm~ // death of a thousand cuts +4 (bastard sword)
-
-~r#plat.itm~ // improved asylum
-~r#runed.itm~
-~r#swan.itm~
-
-// improved battles
-~b#firbla.itm~ // bastard sword +4: virtue's defiance (bastard sword)
-~b#sw1h06.itm~ // bastard sword +4: tainted sin (bastard sword)
-
-// indira
-~j#indi01.itm~ // indi's chain vest (chainmail, can cast spells without penalties)
-
-~c2anom01.itm~ // item upgrade v32
-~c2blun01.itm~
-~c2blun03.itm~
-~c2chan01.itm~
-~c2hide01.itm~
-~c2keld01.itm~
-~c2leat01.itm~
-~c2plat01.itm~
-~c2shld01.itm~
-~c2shld02.itm~
-~c2valy01.itm~
-
-// killing wolf npc
-~plat74.itm~ // full plate mail of unknown origin (full plate armour, very light)
-~sw1h75.itm~ // katana of unknown origin (katana)
-
-// kindrek
-~kinplat.itm~ // kindrek's full plate (full plate armour)
-~kkchain.itm~ // chain mail +3 (chain mail)
-
-// kitanya
-~r!kitplt.itm~ // bringer of vengeance: kitanya's plate mail (plate armour, specifically tailored for the npc)
-~r!kitshd.itm~ // mageslayer shield (large shield/medium shield, i can't see the item icon without installing)
-
-~tzchan01.itm~ // the magnificant magic shop
-~tzchan02.itm~
-~tzplat01.itm~
-~tzshld01.itm~
-
-~mdsiplat.itm~ // mordan's xmas mod
-
-~sgchan1.itm~ // munchmod
-~sgchan2.itm~
-~sgchan3.itm~
-~sgleat1.itm~
-~sgleat2.itm~
-~sgleat3.itm~
-~sgleat4.itm~
-~sgplat1.itm~
-~sgplat2.itm~
-~sgshld1.itm~
-~sgsplt1.itm~
-~sgsplt2.itm~
-~sgsplt3.itm~
-
-// nathaniel
-~fhsw1.itm~ // aplin-fletcher sword (katana)
-
-~shghost.itm~ // neh'taniel
-
-// north side of the sword coast
-~ntchan03.itm~ // chain mail +3: 'sage's armor' (chain mail armour)
-~ntchan04.itm~ // elven chainmail of sorcery (elven chainmail)
-~ntchan05.itm~ // chailmail +5: 'ebon chain' (chainmail)
-~ntchan06.itm~ // chainmail of the firewine (elven chainmail)
-~ntleat01.itm~ // improved shadow armor (studded leather armour, +15% hide in shadows)
-~ntleat02.itm~ // will's armor with cloak (leather armour)
-~ntleat03.itm~ // will's armor with cloak (leather armour)
-~ntleat04.itm~ // studded leather armor +3 (studded leather armour)
-~ntleat05.itm~ // studded leather of resistance (studded leather armour)
-~ntplat01.itm~ // (plate armour)
-~ntshld01.itm~ // small shield +2, 'shield of free action' (small shield)
-~ntshld02.itm~ // shield of the firewine (large shield)
-~ntshld03.itm~ // reinforced large shield (large shield)
-
-~psq117.itm~ // planar sphere mod
-~psq58.itm~
-~psq59.itm~
-~psq60.itm~
-~psq61.itm~
-~psq62.itm~
-~psq63.itm~
-~psq64.itm~
-~psq65.itm~
-~psq66.itm~
-
-~d0leat08.itm~ // quest pack
-
-~buck01.itm~ // rogue rebalancing, old versions
-~buck02.itm~
-~buck03.itm~
-~buck04.itm~
-~buck05.itm~
-~buck06.itm~
-~cyleat.itm~
-
-// new rr
-~rr#abih.itm~ // abishai hide (studded leather armor)
-~rr#buc01.itm~ // kiel's buckler (buckler +1)
-~rr#buc02.itm~ // buckler +1 (also present in tutu and the bg1 portion of bgt)
-~rr#buc03.itm~ // buckler +2 (also present in tutu and the bg1 portion of bgt)
-~rr#buc04.itm~ // buckler +3
-~rr#chn01.itm~ // dark elven chain (elven chain)
-~rr#guara.itm~ // the guardian (medium shield +2, non-metallic, usable by druids)
-~rr#rward.itm~ // rogue's ward (buckler +2)
-~rr#shl01.itm~ // last defense (buckler +1, also present in tutu and the bg1 portion of bgt)
-~rr#shl02.itm~ // safeguard (buckler +2, also present in tutu and the bg1 portion of bgt)
-
-~u#chan01.itm~ // ruad v19
-~u#leat01.itm~
-~u#leat02.itm~
-~u#plat01.itm~
-~u#plat02.itm~
-~u#shld01.itm~
-
-// saerilith
-~nsshld01.itm~ // hermes' shield +1 (medium shield)
-~nsshld02.itm~ // elemental shield +4 (medium shield)
-
-// selune's armory
-~mgileat1.itm~ // studded leather +3, cured leaf hauberk (studded leather armour)
-~mgiplat1.itm~ // full plate +1, restless spirit (full plate armour)
-~mgishld1.itm~ // medium shield +2, featherweight (medium shield)
-~mgishld2.itm~ // small shield +2, shield of fortitude (small shield)
-
-// sos
-~cbcl005.itm~ // the argent shield (medium shield)
-~cbcl013.itm~ // baleful mail (chainmail)
-~cbcl033.itm~ // mail of life (chainmail(
-~cbcl037.itm~ // mystery of the dead (large shield)
-~cbcl041.itm~ // the snow maiden's reaver (bastard sword)
-~cbcl055.itm~ // bastard sword +3: defender (bastard sword)
-~cbcl058.itm~ // waukeen's defender (medium shield?)
-~cblyplat.itm~ // lyrar's plate (plate armour)
-~cblyshld.itm~ // lyrar's shield (large shield)
-~cbrjr015.itm~ // dzance's guardian (medium shield?)
-~cbrjr017.itm~ // laeral's storm armor (full plate armour, non-metallic)
-~cbrolfsh.itm~ // rolf sureblade's shield (medium shield? or tower shield?)
-~cbrolfsw.itm~ // rolf sureblade's sword (bastard sword)
-~cbuhgvar.itm~ // holy armor of torm (plate armour)
-
-// shed's im5
-~leatveng.itm~ // vengeful shadows (studded leather armour)
-~sdim526.itm~ // shed's iron modder 5
-~shedsw01.itm~ // sinistra (katana)
-~shedsw02.itm~ // dextra (katana)
-
-// shed's mods
-~sd_2sw1.itm~ // sinistra (katana)
-~sd_2sw2.itm~ // dextra (katana)
-~sd_vs.itm~ // vengeful shadows (studded leather armour, +10% hide in shadows)
-
-~elemplat.itm~ // sp item pack
-~elemshld.itm~
-
-~c!gplate.itm~ // sp stuff
-
-~a!bchan1.itm~ // song & silence
-~a!bleat1.itm~
-~a!bleat2.itm~
-~a!brsb.itm~
-~a!thcl.itm~
-
-// turnabout
-~d0t#sw11.itm~ // bastard sword +4 (bastard sword)
-~d0t#sw12.itm~ // katana +4 (katana)
-~d0t#leat.itm~ // studded leather armour +3 (studded leather armour)
-
-// tsujatha
-~lotharmo.itm~ // lothaullan (plate armour)
-
-// underrep items
-~u#chan07.itm~ // elven chainmail of the hand +3
-~u#hfheah.itm~ // cornugan hide armour (hide armour +1)
-~u#swdb94.itm~ // miasmic bastard sword
-~u#swdb95.itm~ // bastard sword of wrath
-~u#swdbrc.itm~ // rage of chaos (bastard sword)
-
-~pchan.itm~  // the unusual oddities shop
-~sshldmag.itm~
-
-// the vault
-~echan01.itm~ // elven chainmail +2 (elven chainmail)
-~echan02.itm~ // underdark mail +1 (elven chainmail)
-~leatbal.itm~ // bala's leather +4 (hide armour)
-~leatbar.itm~ // barbarian hide +1 (hide armour)
-~platwy.itm~ // wyvern's scale ("fashioned from the hide of a dead wyvern, the armor is as cumbersome as scalemail but provides the protection of magical platemail")
-
-// yikari
-~sdnpcsw3.itm~ // celestial fury (katana)
-~sdnpcsw4.itm~ // celestial fury +5 (katana)
-*/
 AUTO_TRA ~BG2_Tweaks/languages/%s~
 
 LANGUAGE
@@ -973,11 +180,11 @@ GROUP @11
 // adds ToB trigger/actions to SoA
 INCLUDE ~BG2_Tweaks/lib/tob2soa.tpa~
 
-COMPILE ~BG2_Tweaks/baf/ikmorph.baf~
+COMPILE ~BG2_Tweaks/baf/0ikmorph.baf~
+        ~BG2_Tweaks/baf/ikmorph.baf~
         ~BG2_Tweaks/dlg/ikmorph.d~
 
-COPY ~BG2_Tweaks/baf/0ikmorph.baf~ ~scripts/0ikmorph.bs~
-  COMPILE_BAF_TO_BCS
+MOVE ~override/0ikmorph.bcs~ ~scripts/0ikmorph.bs~
 
 APPEND ~scrpdesc.2da~ ~0IKMorph IKMorph1 IKMorph2~
 
@@ -1300,7 +507,7 @@ ACTION_FOR_EACH file IN
   ~leat02.itm~   
   ~leat03.itm~   
   ~leat09.itm~   
-  ~leat11.itm~   
+  ~leat11.itm~
   ~leat12.itm~   
   ~leat13.itm~
   ~leat14.itm~   
@@ -2308,7 +1515,7 @@ ACTION_FOR_EACH item IN
   ~helm12.itm~   
   ~helm13.itm~   
   ~helm15.itm~   
-  ~helm22.itm~   
+  ~helm22.itm~
   ~helmskwa.itm~ 
   ~ihelm01.itm~  
   ~ihelm10.itm~  
@@ -2350,7 +1557,7 @@ ACTION_FOR_EACH item IN
   ~_iplat01.itm~ 
   ~_plat01.itm~  
   ~_plat04.itm~  
-  ~_plat07.itm~  
+  ~_plat07.itm~
   ~_plat98.itm~  
   ~chan01.itm~   
   ~chan04.itm~   
@@ -3867,7 +3074,9 @@ COPY_EXISTING ~sw1h01.itm~ ~override/cdt01210.g3~
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
   READ_SHORT 0x28 "anim" ELSE 0
-  PATCH_IF ((("%SOURCE_FILE%" STRING_COMPARE_CASE "charbase.cre") = 0)
+  PATCH_IF (
+       ("%SOURCE_FILE%" STRING_COMPARE_CASE   "charbase.cre" = 0)
+    OR ("%SOURCE_FILE%" STRING_COMPARE_REGEXP "^AERIE[0-9][0-9]?\.cre$" = 0) // aerie comes as a ogre, so gets missed
     OR ("%anim%" = 0x5000)
     OR ("%anim%" = 0x5001)
     OR ("%anim%" = 0x5002)
@@ -4245,8 +3454,8 @@ ACTION_IF FILE_EXISTS_IN_GAME ~oh9350.are~ BEGIN // WeiDU 231 throws biff area o
 END ELSE BEGIN
 
   // ensures are regexp search doesn't die
-  COPY_EXISTING ~ar0100.are~ ~override/xr2400.are~
-                ~ar0100.are~ ~override/xr2600.are~
+  COPY_EXISTING ~ar0087.are~ ~override/xr2400.are~
+                ~ar0087.are~ ~override/xr2600.are~
 
   COPY_EXISTING_REGEXP GLOB ~^.+\.[ac]re$~ ~override~
     LAUNCH_PATCH_MACRO ~cd_bgee_no_are1~
@@ -4487,8 +3696,8 @@ ACTION_IF FILE_EXISTS_IN_GAME ~oh9350.are~ BEGIN // WeiDU 231 throws biff area o
 END ELSE BEGIN
 
   // ensures are regexp search doesn't die
-  COPY_EXISTING ~ar0100.are~ ~override/xr2400.are~
-                ~ar0100.are~ ~override/xr2600.are~
+  COPY_EXISTING ~ar0087.are~ ~override/xr2400.are~
+                ~ar0087.are~ ~override/xr2600.are~
 
   COPY_EXISTING_REGEXP GLOB ~^.+\.[ac]re$~ ~override~
     LAUNCH_PATCH_MACRO ~cd_bgee_no_are2~
@@ -4888,6 +4097,9 @@ END ELSE BEGIN
   COPY  ~BG2_Tweaks/2da/xplevel.2da~ ~override~
 END
 
+// extend bard, ranger pickpocketing to 200 and levels to 50
+INCLUDE ~BG2_Tweaks/lib/thieving_to_50.tpa~
+
 // easy replacements for 2das with levels as rows
 COPY_EXISTING ~lvlmodwm.2da~ ~override~ // wild mage level modulation for wild surges
               ~mxsplbrd.2da~ ~override~ // bard spell progression table
@@ -4896,8 +4108,6 @@ COPY_EXISTING ~lvlmodwm.2da~ ~override~ // wild mage level modulation for wild s
               ~mxsplran.2da~ ~override~ // ranger spell progression table
               ~mxsplsrc.2da~ ~override~ // sorcerer spell progression table
               ~mxsplwiz.2da~ ~override~ // wizard spell progression table
-              ~skillbrd.2da~ ~override~ // bard pickpocket table
-              ~skillrng.2da~ ~override~ // ranger stealth table
               ~splsrckn.2da~ ~override~ // sorcerer known spells?
   PATCH_IF (SOURCE_SIZE > 0) BEGIN
     REPLACE_TEXTUALLY ~^40\([ %TAB%].*\)~
@@ -5112,68 +4322,9 @@ ACTION_CLEAR_ARRAY cd_armor
 INCLUDE ~BG2_Tweaks/lib/common_armor_list.tpa~ // common armor types needed for both components
 INCLUDE ~BG2_Tweaks/lib/extra_regexp_vars.tpa~ // needed for descript matching
 
-ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_armor BEGIN
-  // special chain that only gets thieving penalties (but is not elven)
-  ~j#indi01~ => 201 // indi's chain vest (chainmail, can cast spells without penalties)
-  ~o!bom004~ => 201 // abdel's mage chain (chain mail armour, 20% chance of miscast magic)
-  ~o!bom005~ => 201 // abdel's mage chain +1 (chain mail armour, 30% chance of miscast magic)
-  ~o!bom006~ => 201 // abdel's mage chain +2 (chain mail armour, 40% chance of miscast magic)
-  ~s!chan02~ => 201 // eternal melody +5 (chain armour, can cast spells in it for bards)
-  // elven chain
-  ~a!bchan1~ => 202
-  ~bsingchn~ => 202 // mirathar (bladesinger chainmail)
-  ~c2chan01~ => 202
-  ~chan12~   => 202
-  ~chan13~   => 202
-  ~chan14~   => 202
-  ~chan15~   => 202
-  ~chan16~   => 202
-  ~chan19~   => 202
-  ~chands06~ => 202 // elven chainmail +1 (elven chain mail)
-  ~clolth~   => 202
-  ~drowchn1~ => 202 // drow adamantite mesh armor +1 (drow mesh armour)
-  ~drowchn2~ => 202 // drow adamantite mesh armor +2 (drow mesh armour)
-  ~drowchn3~ => 202 // drow adamantite mesh armor +3 (drow mesh armour)
-  ~dsjearm~  => 202
-  ~dskorim~  => 202
-  ~dwchan01~ => 202
-  ~dwchan02~ => 202
-  ~echan01~  => 202 // elven chainmail +2 (elven chainmail)
-  ~echan02~  => 202 // underdark mail +1 (elven chainmail)
-  ~efml01~   => 202
-  ~fwchan02~ => 202
-  ~fwchan03~ => 202
-  ~gcmch01~  => 202
-  ~illas04~  => 202
-  ~ntchan04~ => 202 // elven chainmail of sorcery (elven chainmail)
-  ~ntchan06~ => 202 // chainmail of the firewine (elven chainmail)
-  ~pchan~    => 202
-  ~rr#chn01~ => 202 // dark elven chain (elven chain)
-  ~scal04~   => 202
-  ~sgchan1~  => 202
-  ~sgchan2~  => 202
-  ~tzchan01~ => 202
-  ~u#chan01~ => 202
-  ~u#chan07~ => 202 // elven chainmail of the hand +3
-  ~ucmgch01~ => 202 // drow chain +3 (elven chain mail, can cast spells faster too, does not decay in sunlight)
-  ~ucmgch02~ => 202 // drow admantine chain +5 (drow elven chain mail, does not decay on surface)
-  ~x#garch~  => 202
-  ~x#garch2~ => 202
-  // special plate that only gets thieving penalties
-  ~o!bom007~ => 205 // abdel's mage plate (plate armour, 30% chance of miscast magic)
-  ~o!bom008~ => 205 // abdel's mage plate +1 (plate armour, 40% chance of miscast magic)
-  ~o!bom009~ => 205 // abdel's mage plate +2 (plate armour, 50% chance of miscast magic)
-  // special studded leather that only gets thieving penalties
-  ~a!bleat1~ => 208 // from s&s
-  ~a!bleat2~ => 208 // from s&s
-  ~dskearm~  => 208 // from dsotsc
-  ~ntleat02~ => 208 // from ntotsc
-  ~ntleat03~ => 208 // from ntotsc
-END
-
 ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
 
-  ACTION_IF FILE_EXISTS_IN_GAME "%item%.itm" BEGIN
+  ACTION_IF ((temp_type > 200) AND (FILE_EXISTS_IN_GAME "%item%.itm")) BEGIN // ignore 200-, those are arcane only
 
     COPY_EXISTING "%item%.itm" override
       READ_LONG  0x64 "abil_off"
@@ -5186,14 +4337,14 @@ ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
       SET "patch_lock" = 0
       SET "patch_trap" = 0
       SET "patch_silent" = 0
-      PATCH_IF ("%temp_type%" = 201) BEGIN // chain mail
+      PATCH_IF (("%temp_type%" = 201) OR ("%temp_type%" = 210) OR ("%temp_type%" = 214)) BEGIN // chain mail
         SET "penalty_hide" = 30
         SET "penalty_pickpocket" = 40
         SET "penalty_lock" = 15
         SET "penalty_trap" = 15
         SET "penalty_silent" = 40
       END ELSE
-      PATCH_IF ("%temp_type%" = 202) BEGIN // elven chain mail
+      PATCH_IF ("%temp_type%" = 212) BEGIN // elven chain mail
         SET "penalty_hide" = 10
         SET "penalty_pickpocket" = 20
         SET "penalty_lock" = 5
@@ -5214,7 +4365,7 @@ ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
         SET "penalty_trap" = 50
         SET "penalty_silent" = 30
       END ELSE
-      PATCH_IF ("%temp_type%" = 205) BEGIN // plate mail
+      PATCH_IF (("%temp_type%" = 205) OR ("%temp_type%" = 215)) BEGIN // plate mail
         SET "penalty_hide" = 75
         SET "penalty_pickpocket" = 75
         SET "penalty_lock" = 40
@@ -5234,28 +4385,15 @@ ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
         SET "penalty_lock" = 15
         SET "penalty_trap" = 25
         SET "penalty_silent" = 40
-      END ELSE
-      PATCH_IF ("%temp_type%" = 208) BEGIN // studded leather
+      END ELSE BEGIN // 208, 211, 213 - studded leather
         SET "penalty_hide" = 20
         SET "penalty_pickpocket" = 30
         SET "penalty_lock" = 10
         SET "penalty_trap" = 10
         SET "penalty_silent" = 20
-      END ELSE
-      PATCH_IF ("%temp_type%" = 210) BEGIN // chain, special
-        SET "penalty_hide" = 20
-        SET "penalty_pickpocket" = 30
-        SET "penalty_lock" = 10
-        SET "penalty_trap" = 10
-        SET "penalty_silent" = 20
-        SET "patch_hide" = 2
-        SET "patch_silent" = 2
-      END ELSE BEGIN // 211, special studded leather
-        SET "penalty_hide" = 20
-        SET "penalty_pickpocket" = 30
-        SET "penalty_lock" = 10
-        SET "penalty_trap" = 10
-        SET "penalty_silent" = 20
+      END
+      // special, don't-mess-with-stealth armor
+      PATCH_IF (("%temp_type%" = 210) OR ("%temp_type%" = 211)) BEGIN // studded leather
         SET "patch_hide" = 2
         SET "patch_silent" = 2
       END
@@ -5399,23 +4537,9 @@ ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
 
 END
 
-// let ranger stealth go above 99
-COPY_EXISTING ~skillrng.2da~ ~override~
-  COUNT_2DA_ROWS ~2~ "rows"
-  FOR (index = 0 ; index < rows ; ++index) BEGIN
-    READ_2DA_ENTRY index 0 2 "level"
-    READ_2DA_ENTRY index 1 2 "stealth"
-    PATCH_IF (IS_AN_INT level) BEGIN
-      SET stealth_adj = (10 + (7 * level))
-      PATCH_IF (stealth_adj > 200) BEGIN
-        SET stealth_adj = 200
-      END
-      PATCH_IF (stealth < stealth_adj) BEGIN
-        SET_2DA_ENTRY index 1 2 "stealth_adj"
-      END
-    END
-  END
-  BUT_ONLY
+// extend bard, ranger pickpocketing to 200 and levels to 50
+INCLUDE ~BG2_Tweaks/lib/thieving_to_50.tpa~
+
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -5455,250 +4579,13 @@ INCLUDE ~BG2_Tweaks/languages/polish/arcane_descripts.tpa~
 INCLUDE ~BG2_Tweaks/languages/russian/arcane_descripts.tpa~
 INCLUDE ~BG2_Tweaks/languages/spanish/arcane_descripts.tpa~
 
-/*
-190 - Buckler
-191 - Small Shield
-192 - Medium Shield
-193 - Large Shield
-194 - Tower Shield
-
-201 - Chainmail
-202 - Elven Chainmail
-203 - Full Plate
-204 - Hide Armor
-205 - Plate Mail
-206 - Scale Mail
-207 - Splint Mail
-208 - Studded Leather
-209 - Leather
-*/
-
 ACTION_CLEAR_ARRAY cd_armor
 INCLUDE ~BG2_Tweaks/lib/common_armor_list.tpa~ // common armor types needed for both components
 INCLUDE ~BG2_Tweaks/lib/extra_regexp_vars.tpa~ // needed for descript matching
 
-ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_armor BEGIN
-  // bucklers
-  ~_shld08.itm~  => 190
-  ~_shld09.itm~  => 190
-  ~_shld10.itm~  => 190
-  ~_shld20.itm~  => 190
-  ~a!brsb.itm~   => 190
-  ~buck01.itm~   => 190
-  ~buck02.itm~   => 190
-  ~buck03.itm~   => 190
-  ~buck04.itm~   => 190
-  ~buck05.itm~   => 190
-  ~buck06.itm~   => 190
-  ~c2shld01.itm~ => 190
-  ~deitm121.itm~ => 190
-  ~drowshd1.itm~ => 190 // drow adamantite buckler +1 (drow buckler)
-  ~drowshd2.itm~ => 190 // drow adamantite buckler +2 (drow buckler)
-  ~drowshd3.itm~ => 190 // drow adamantite buckler +3 (drow buckler)
-  ~dsshld01.itm~ => 190
-  ~m#buck2.itm~  => 190 // buckler +2, thorard's saucer (buckler)
-  ~o!bom027.itm~ => 190 // beren's buckler of baleful woe (buckler)
-  ~rr#buc01.itm~ => 190 // kiel's buckler (buckler +1)
-  ~rr#buc02.itm~ => 190 // buckler +1 (also present in tutu and the bg1 portion of bgt)
-  ~rr#buc03.itm~ => 190 // buckler +2 (also present in tutu and the bg1 portion of bgt)
-  ~rr#buc04.itm~ => 190 // buckler +3
-  ~rr#rward.itm~ => 190 // rogue's ward (buckler +2)
-  ~rr#shl01.itm~ => 190 // last defense (buckler +1, also present in tutu and the bg1 portion of bgt)
-  ~rr#shl02.itm~ => 190 // safeguard (buckler +2, also present in tutu and the bg1 portion of bgt)
-  ~s!shld03.itm~ => 190 // buckler +3 (buckler)
-  ~shld08.itm~   => 190
-  ~shld09.itm~   => 190
-  ~shld10.itm~   => 190
-  ~shld17.itm~   => 190
-  ~shld20.itm~   => 190
-  ~skelshld.itm~ => 190
-  // small shields
-  ~_ishld02.itm~ => 191
-  ~_shld01.itm~  => 191
-  ~_shld02.itm~  => 191
-  ~_shld11.itm~  => 191
-  ~_shld12.itm~  => 191
-  ~_shld99.itm~  => 191
-  ~brueshld.itm~ => 191 // small shield +1 (small shield)
-  ~c2shld02.itm~ => 191
-  ~cbcl058.itm~  => 191 // waukeen's defender
-  ~cbsbmltw.itm~ => 191
-  ~dscushld.itm~ => 191
-  ~dshld01.itm~  => 191
-  ~dsjeshld.itm~ => 191
-  ~dsshld51.itm~ => 191
-  ~ishld02.itm~  => 191
-  ~mgishld2.itm~ => 191 // small shield +2, shield of fortitude (small shield)
-  ~ntshld01.itm~ => 191 // small shield +2, 'shield of free action' (small shield)
-  ~psq60.itm~    => 191
-  ~shld01.itm~   => 191
-  ~shld02.itm~   => 191
-  ~shld11.itm~   => 191
-  ~shld12.itm~   => 191
-  ~shld24.itm~   => 191
-  ~shld25.itm~   => 191
-  ~shld28.itm~   => 191
-  ~shld51.itm~   => 191 // small shield +2 'sun shield' (small shield)
-  ~shld99.itm~   => 191
-  ~shldds01.itm~ => 191 // cúchoinneach's small shield +3 "the moon" (small shield)
-  ~slayer1.itm~  => 191 // small shield +2 (small shield)
-  ~waukeen.itm~  => 191 // waukeen's defender (small shield)
-  // medium shields
-  ~_ishld03.itm~ => 192
-  ~_shld03.itm~  => 192
-  ~_shld04.itm~  => 192
-  ~_shld13.itm~  => 192
-  ~_shld14.itm~  => 192
-  ~c2anom01.itm~ => 192
-  ~cbcl005.itm~  => 192 // the argent shield (medium shield)
-  ~cbpdofcm.itm~ => 192 // shield of the purple dragon (medium shield)
-  ~cbrjr015.itm~ => 192 // dzance's guardian (medium shield?)
-  ~cbshldwk.itm~ => 192 // waukeen's defender (medium shield?)
-  ~cbshsoub.itm~ => 192
-  ~chalshld.itm~ => 192
-  ~cmgforg8.itm~ => 192
-  ~coms01.itm~   => 192
-  ~coms02.itm~   => 192
-  ~deitm119.itm~ => 192
-  ~deitm120.itm~ => 192
-  ~dsshld52.itm~ => 192
-  ~dsshld53.itm~ => 192
-  ~dwshld01.itm~ => 192
-  ~elemshld.itm~ => 192
-  ~gcmsh01.itm~  => 192
-  ~ishld03.itm~  => 192
-  ~mgishld1.itm~ => 192 // medium shield +2, featherweight (medium shield)
-  ~npshld.itm~   => 192
-  ~nsshld01.itm~ => 192 // hermes' shield +1 (medium shield)
-  ~nsshld02.itm~ => 192 // elemental shield +4 (medium shield)
-  ~psq59.itm~    => 192
-  ~psq61.itm~    => 192
-  ~r!kitshd.itm~ => 192 // mageslayer shield (large shield/medium shield, i can't see the item icon without installing)
-  ~r#runed.itm~  => 192
-  ~rr#guara.itm~ => 192 // the guardian (medium shield +2, non-metallic, usable by druids)
-  ~s!shld01.itm~ => 192 // delryn family legacy +4 (as per anomen's existing shield)
-  ~sgshld1.itm~  => 192
-  ~shghost.itm~  => 192
-  ~shld03.itm~   => 192
-  ~shld04.itm~   => 192
-  ~shld13.itm~   => 192
-  ~shld14.itm~   => 192
-  ~shld21.itm~   => 192
-  ~shld22.itm~   => 192
-  ~shld26.itm~   => 192
-  ~shld27.itm~   => 192
-  ~shld29.itm~   => 192
-  ~shld32.itm~   => 192
-  ~shld52.itm~   => 192 // medium shield +2 (medium shield)
-  ~shld53.itm~   => 192 // medium shield +2 'heart of the dragon' (medium shield)
-  ~shldgraz.itm~ => 192
-  ~shldred.itm~  => 192 // the red knight's shield (medium shield)
-  ~sshldmag.itm~ => 192
-  ~ttshld01.itm~ => 192
-  ~u#shld01.itm~ => 192
-  ~ucmgsh01.itm~ => 192 // medium shield +3 (medium shield)
-  ~ucmgsh02.itm~ => 192 // drow shield +3 (medium shield)
-  ~wa2shiel.itm~ => 192
-  ~x#ajshld.itm~ => 192
-  // tower shields
-  ~_shld05.itm~  => 194
-  ~_shld06.itm~  => 194
-  ~_shld07.itm~  => 194
-  ~_shld15.itm~  => 194
-  ~_shld16.itm~  => 194
-  ~_shld18.itm~  => 194
-  ~_shld19.itm~  => 194
-  ~cb351g03.itm~ => 194
-  ~cbcl037.itm~  => 194 // mystery of the dead (large shield)
-  ~cblyshld.itm~ => 194 // lyrar's shield (large shield)
-  ~cbmhshld.itm~ => 194 // large shield +3 (large shield)
-  ~cbmilt03.itm~ => 194
-  ~cbmilt13.itm~ => 194
-  ~cbrolfsh.itm~ => 194 // rolf sureblade's shield (medium shield? or tower shield?)
-  ~cbsbmltx.itm~ => 194
-  ~cbsbmlty.itm~ => 194
-  ~cbtempus.itm~ => 194 // holy shield of tempus (large shield)
-  ~cbtssd01.itm~ => 194 // large shield +5 (large shield)
-  ~cbwtni5a.itm~ => 194 // shield of belvin (large shield?)
-  ~cmshld01.itm~ => 194 // shield +3 (kite/tower/body shield)
-  ~deitm122.itm~ => 194
-  ~dsshld02.itm~ => 194
-  ~dsshld54.itm~ => 194
-  ~fwshld01.itm~ => 194
-  ~gcmsh02.itm~  => 194
-  ~guardshz.itm~ => 194 // soul guard (tower shield)
-  ~jers.itm~     => 194
-  ~mashld01.itm~ => 194 // large mithril shied +3 (large shield)
-  ~mystery.itm~  => 194
-  ~ntshld02.itm~ => 194 // shield of the firewine (large shield)
-  ~ntshld03.itm~ => 194 // reinforced large shield (large shield)
-  ~orrshld.itm~  => 194 // orrick's rhino beetle shield (tower shield)
-  ~psq117.itm~   => 194
-  ~psq58.itm~    => 194
-  ~s!shld02.itm~ => 194 // supreme shelter +6 (tower shield)
-  ~shld05.itm~   => 194
-  ~shld06.itm~   => 194
-  ~shld07.itm~   => 194
-  ~shld15.itm~   => 194
-  ~shld16.itm~   => 194
-  ~shld18.itm~   => 194
-  ~shld19.itm~   => 194
-  ~shld23.itm~   => 194
-  ~shld30.itm~   => 194
-  ~shld31.itm~   => 194
-  ~shld54.itm~   => 194 // large shield +2, +7 vs. missiles: 'the wall' (large shield)
-  ~shldraid.itm~ => 194
-  ~shldxz.itm~   => 194
-  ~tzshld01.itm~ => 194
-  ~ushld3b.itm~  => 194 // storming shield +3 (tower shield)
-  ~x#fash01.itm~ => 194
-  // leather armor
-  ~_leat01.itm~  => 209
-  ~_leat02.itm~  => 209
-  ~_leat03.itm~  => 209
-  ~_leat09.itm~  => 209
-  ~ardeadx.itm~  => 209 // armour of the dead +3 (leather armour)
-  ~c2leat01.itm~ => 209
-  ~cbsbmltr.itm~ => 209
-  ~cbsbmlts.itm~ => 209
-  ~cmleat5.itm~  => 209 // nature's divine (leather armour)
-  ~ddhrtles.itm~ => 209
-  ~deitm089.itm~ => 209
-  ~fwleat01.itm~ => 209
-  ~i1lt001.itm~  => 209 // skeleton ribcage (leather armour?)
-  ~i1lt002.itm~  => 209 // anti-imprisonment armor (leather armour?, move silently: -20, lock picking: -10, find/remove traps: -10, pick pockets: -10)
-  ~leat01.itm~   => 209
-  ~leat02.itm~   => 209
-  ~leat03.itm~   => 209
-  ~leat09.itm~   => 209
-  ~leat11.itm~   => 209
-  ~leat12.itm~   => 209
-  ~leat13.itm~   => 209
-  ~leat14.itm~   => 209
-  ~leat21.itm~   => 209
-  ~leat22.itm~   => 209
-  ~leatds02.itm~ => 209 // cúchoinneach personal leather armor +4 (leather armour)
-  ~leatds05.itm~ => 209 // cúchoinneach personal leather armor +4 (leather armour)
-  ~macmle01.itm~ => 209 // woodland armor (leather armour)
-  ~psq66.itm~    => 209
-  ~s!leat01.itm~ => 209 // improved human flesh (leather armour)
-  ~s!leat02.itm~ => 209 // spirit of the night (leather armour)
-  ~samarmx1.itm~ => 209
-  ~sgleat1.itm~  => 209
-  ~sgleat3.itm~  => 209
-  ~sgleat4.itm~  => 209
-  ~shar20.itm~   => 209 // blade master leather (leather armour)
-  ~ttleat.itm~   => 209
-  ~visleat1.itm~ => 209
-  ~warlkarm.itm~ => 209 // stormcloud "kraken's bane" (leather armour)
-  ~wlfleat.itm~  => 209 // wulfgar's fur armor (leather armour)
-  ~wulfhide.itm~ => 209 // wulfgar's fur armor (leather armour)
-  ~xarm004.itm~  => 209
-END
-
 ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
 
-  ACTION_IF FILE_EXISTS_IN_GAME "%item%.itm" BEGIN
+  ACTION_IF ((temp_type < 210) AND (FILE_EXISTS_IN_GAME "%item%.itm")) BEGIN // ignore 210+, these are thieving only
 
     COPY_EXISTING "%item%.itm" override
       READ_LONG  0x64 "abil_off"
@@ -5711,10 +4598,10 @@ ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
       PATCH_IF (("%temp_type%" = 190) OR ("%temp_type%" = 191)) BEGIN // buckler, small shield
         SET "patch_miscast" = 5
       END ELSE
-      PATCH_IF ("%temp_type%" = 209) BEGIN // leather armor
+      PATCH_IF ("%temp_type%" = 200) BEGIN // leather armor
         SET "patch_miscast" = 10
       END ELSE
-      PATCH_IF (("%temp_type%" = 192) OR ("%temp_type%" = 193) OR ("%temp_type%" = 208) OR ("%temp_type%" = 211)) BEGIN // medium shield, large shield, studded leather
+      PATCH_IF (("%temp_type%" = 192) OR ("%temp_type%" = 193) OR ("%temp_type%" = 208)) BEGIN // medium shield, large shield, studded leather
         SET "patch_miscast" = 15
       END ELSE
       PATCH_IF ("%temp_type%" = 204) BEGIN // hide armor
@@ -5723,7 +4610,7 @@ ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
       PATCH_IF ("%temp_type%" = 206) BEGIN // scale armor
         SET "patch_miscast" = 25
       END ELSE
-      PATCH_IF (("%temp_type%" = 201) OR ("%temp_type%" = 210)) BEGIN // chain armor
+      PATCH_IF ("%temp_type%" = 201) BEGIN // chain armor
         SET "patch_miscast" = 30
       END ELSE
       PATCH_IF ("%temp_type%" = 203) BEGIN // full plate
@@ -5731,7 +4618,7 @@ ACTION_PHP_EACH cd_armor AS item => temp_type BEGIN
       END ELSE
       PATCH_IF (("%temp_type%" = 205) OR ("%temp_type%" = 207)) BEGIN // plate mail, splint mail
         SET "patch_miscast" = 40
-      END ELSE BEGIN // tower shield
+      END ELSE BEGIN // 194 tower shield
         SET "patch_miscast" = 50
       END
       FOR (index = 0 ; index < fx_num ; index = index + 1) BEGIN // this major FOR loop examines existing effects and adjusts them accordingly
@@ -6223,8 +5110,8 @@ ACTION_IF FILE_EXISTS_IN_GAME ~oh9350.are~ BEGIN // WeiDU 231 throws biff area o
 END ELSE BEGIN
 
   // ensures are regexp search doesn't die
-  COPY_EXISTING ~ar0100.are~ ~override/xr2400.are~
-                ~ar0100.are~ ~override/xr2600.are~
+  COPY_EXISTING ~ar0087.are~ ~override/xr2400.are~
+                ~ar0087.are~ ~override/xr2600.are~
 
   COPY_EXISTING_REGEXP GLOB ~^.+\.[ac]re$~ ~override~
     LAUNCH_PATCH_MACRO ~cd_bgee_no_are3~
@@ -8273,8 +7160,8 @@ ACTION_IF FILE_EXISTS_IN_GAME ~oh9350.are~ BEGIN // WeiDU 231 throws biff area o
 END ELSE BEGIN
 
   // ensures are regexp search doesn't die
-  COPY_EXISTING ~ar0100.are~ ~override/xr2400.are~
-                ~ar0100.are~ ~override/xr2600.are~
+  COPY_EXISTING ~ar0087.are~ ~override/xr2400.are~
+                ~ar0087.are~ ~override/xr2600.are~
 
   COPY_EXISTING_REGEXP GLOB ~^.+\.[ac]re$~ ~override~
     LAUNCH_PATCH_MACRO ~cd_bgee_no_are4~
@@ -8769,8 +7656,8 @@ REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~oh9350.are~  @22 // temporary until W
 // this file does nothing, it just allows other mods to detect this component
 COPY_EXISTING ~sw1h01.itm~ ~override/cdt03130.g3~
 
-COPY_EXISTING ~ar0100.are~ ~override/xr2400.are~
-              ~ar0100.are~ ~override/xr2600.are~
+COPY_EXISTING ~ar0087.are~ ~override/xr2400.are~
+              ~ar0087.are~ ~override/xr2600.are~
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.are$~ ~override~
   READ_SHORT 0x5a "trig_num"
@@ -9208,8 +8095,8 @@ REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~oh9350.are~  @22 // temporary until W
 // this file does nothing, it just allows other mods to detect this component
 COPY_EXISTING ~sw1h01.itm~ ~override/cdt03190.g3~
 
-COPY_EXISTING ~ar0100.are~ ~override/xr2400.are~
-              ~ar0100.are~ ~override/xr2600.are~
+COPY_EXISTING ~ar0087.are~ ~override/xr2400.are~
+              ~ar0087.are~ ~override/xr2600.are~
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.are$~ ~override~
   READ_BYTE  0x48 "flags"
@@ -9411,114 +8298,47 @@ COPY_EXISTING ~cut100a.bcs~ ~override~
   UNLESS ~SetGlobal("G#G3.CompletedSoA","GLOBAL",1)~
   BUT_ONLY_IF_IT_CHANGES
 
-// extend SoA scripts to set per-NPC variables if player meets Bioware NPC
-EXTEND_BOTTOM ~aerie.bcs~    ~BG2_Tweaks/baf/aerie.baf~
-EXTEND_BOTTOM ~anomen.bcs~   ~BG2_Tweaks/baf/anomen.baf~
-EXTEND_BOTTOM ~cernd.bcs~    ~BG2_Tweaks/baf/cernd.baf~
-EXTEND_BOTTOM ~edwin.bcs~    ~BG2_Tweaks/baf/fsp_edwin.baf~
-EXTEND_BOTTOM ~haerdali.bcs~ ~BG2_Tweaks/baf/haer.baf~
-EXTEND_BOTTOM ~imoen.bcs~    ~BG2_Tweaks/baf/imoen.baf~
-EXTEND_BOTTOM ~imoen2.bcs~   ~BG2_Tweaks/baf/imoen.baf~
-EXTEND_BOTTOM ~jaheira.bcs~  ~BG2_Tweaks/baf/jaheira.baf~
-EXTEND_BOTTOM ~jan.bcs~      ~BG2_Tweaks/baf/jan.baf~
-EXTEND_BOTTOM ~keldorn.bcs~  ~BG2_Tweaks/baf/keldorn.baf~
-EXTEND_BOTTOM ~korgan.bcs~   ~BG2_Tweaks/baf/fsp_korgan.baf~
-EXTEND_BOTTOM ~mazzy.bcs~    ~BG2_Tweaks/baf/mazzy.baf~
-EXTEND_BOTTOM ~minsc.bcs~    ~BG2_Tweaks/baf/fsp_minsc.baf~
-EXTEND_BOTTOM ~nalia.bcs~    ~BG2_Tweaks/baf/nalia.baf~
-EXTEND_BOTTOM ~valygar.bcs~  ~BG2_Tweaks/baf/fsp_valygar.baf~
-EXTEND_BOTTOM ~viconia.bcs~  ~BG2_Tweaks/baf/viconia.baf~
-
-// mod NPCs
-// can't do xan (talon) and wikaede; no SoA scripts
-// anything else not listed: fatesp tie-in not found
-ACTION_IF FILE_EXISTS_IN_GAME ~d0alassa.bcs~ THEN BEGIN // alassa
-
-  EXTEND_BOTTOM ~d0alassa.bcs~ ~BG2_Tweaks/baf/alassa.baf~
-
+ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_fate_spirit BEGIN
+  ~aerie~    => ~aerie~
+  ~anomen~   => ~anomen~
+  ~cernd~    => ~cernd~
+  ~d#silver~ => ~silverstar~
+  ~d0alassa~ => ~alassa~
+  ~edwin~    => ~fsp_edwin~
+  ~fwghar~   => ~ghareth~
+  ~haerdali~ => ~haer~
+  ~imoen~    => ~imoen~
+  ~imoen2~   => ~imoen~
+  ~j#klsy~   => ~kelsey~
+  ~jaheira~  => ~jaheira~
+  ~jan~      => ~jan~
+  ~jcbru~    => ~bruce_jc~
+  ~keldorn~  => ~keldorn~
+  ~kido~     => ~kido~
+  ~kindrek~  => ~kindrek~
+  ~korgan~   => ~fsp_korgan~
+  ~mazzy~    => ~mazzy~
+  ~minsc~    => ~fsp_minsc~
+  ~nalia~    => ~nalia~
+  ~o#xans~   => ~xan~
+  ~p#deh~    => ~deheriana~
+  ~p#kiv01~  => ~fsp_kivan~
+  ~sc#hub~   => ~hubelpot~
+  ~sola~     => ~sola~
+  ~subru~    => ~bruce_bons~
+  ~tashia~   => ~tashia~
+  ~valygar~  => ~fsp_valygar~
+  ~vanim~    => ~vanim~
+  ~viconia~  => ~viconia~
 END
 
-ACTION_IF FILE_EXISTS_IN_GAME ~subru.bcs~ THEN BEGIN // bruce (bons)
+ACTION_PHP_EACH cd_fate_spirit AS script => extension BEGIN
 
-  EXTEND_BOTTOM ~subru.bcs~ ~BG2_Tweaks/baf/bruce_bons.baf~
+  ACTION_IF FILE_EXISTS_IN_GAME "%script%.bcs" BEGIN
 
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~jcbru.bcs~ THEN BEGIN // bruce (jc)
-
-  EXTEND_BOTTOM ~jcbru.bcs~ ~BG2_Tweaks/baf/bruce_jc.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~p#deh.bcs~ THEN BEGIN // deheriana
-
-  EXTEND_BOTTOM ~p#deh.bcs~ ~BG2_Tweaks/baf/deheriana.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~fwghar.bcs~ THEN BEGIN // ghareth
-
-  EXTEND_BOTTOM ~fwghar.bcs~ ~BG2_Tweaks/baf/ghareth.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~sc#hub.bcs~ THEN BEGIN // hubelpot
-
-  EXTEND_BOTTOM ~sc#hub.bcs~ ~BG2_Tweaks/baf/hubelpot.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#klsy.bcs~ THEN BEGIN // kelsey
-
-  EXTEND_BOTTOM ~j#klsy.bcs~ ~BG2_Tweaks/baf/kelsey.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~kido.bcs~ THEN BEGIN // kido
-
-  EXTEND_BOTTOM ~kido.bcs~ ~BG2_Tweaks/baf/kido.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~kindrek.bcs~ THEN BEGIN // kindrek
-
-  EXTEND_BOTTOM ~kindrek.bcs~ ~BG2_Tweaks/baf/kindrek.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~p#kiv01.bcs~ THEN BEGIN // kivan
-
-  EXTEND_BOTTOM ~p#kiv01.bcs~ ~BG2_Tweaks/baf/fsp_kivan.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~d#silver.bcs~ THEN BEGIN // silverstar
-
-  EXTEND_BOTTOM ~d#silver.bcs~ ~BG2_Tweaks/baf/silverstar.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~sola.bcs~ THEN BEGIN // solaufein (weimer)
-
-  EXTEND_BOTTOM ~sola.bcs~ ~BG2_Tweaks/baf/sola.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~tashia.bcs~ THEN BEGIN // tashia
-
-  EXTEND_BOTTOM ~tashia.bcs~ ~BG2_Tweaks/baf/tashia.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~vanim.bcs~ THEN BEGIN // vanim
-
-  EXTEND_BOTTOM ~vanim.bcs~ ~BG2_Tweaks/baf/vanim.baf~
-
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xans.bcs~ THEN BEGIN // xan (kulyok)
-
-  EXTEND_BOTTOM ~o#xans.bcs~ ~BG2_Tweaks/baf/xan.baf~
+    EXTEND_BOTTOM ~%script%.bcs~    ~BG2_Tweaks/baf/%extension%.baf~
+    
+  END
 
 END
 
@@ -9550,45 +8370,265 @@ COPY_EXISTING ~sw1h01.itm~ ~override/cdt04020.g3~
 // load patch macro
 INCLUDE ~bg2_tweaks/lib/tob_style_npcs.tpa~
 
-// all variants
-COPY ~BG2_Tweaks/2da/tob_style_npcs.2da~ ~BG2_Tweaks/2da/tob_style_npcs.2da~
-  COUNT_2DA_ROWS ~2~ "rows"
-  FOR ( index = 0 ; index < rows ; index = index + 1 ) BEGIN
-    READ_2DA_ENTRY index 0 2 "orig"
-    READ_2DA_ENTRY index 1 2 "dest"
-    INNER_ACTION BEGIN
+ACTION_CLEAR_ARRAY cd_tob_style_npcs
+ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_tob_style_npcs BEGIN
+  ~_ajanti~  => ~_ajanti4~
+  ~_ajanti~  => ~_ajanti6~
+  ~_alora~   => ~_alora6~
+  ~_branwe~  => ~_branwe5~
+  ~_coran~   => ~_coran5~
+  ~_dynahe~  => ~_dynahe2~
+  ~_dynahe~  => ~_dynahe4~
+  ~_dynahe~  => ~_dynahe6~
+  ~_edwin~   => ~_edwin2~
+  ~_edwin~   => ~_edwin4~
+  ~_edwin~   => ~_edwin6~
+  ~_faldor~  => ~_faldor5~
+  ~_garric~  => ~_garric2~
+  ~_garric~  => ~_garric4~
+  ~_garric~  => ~_garric6~
+  ~_imoen1~  => ~_imoen2~
+  ~_imoen1~  => ~_imoen4~
+  ~_imoen1~  => ~_imoen6~
+  ~_jaheir~  => ~_jaheir2~
+  ~_jaheir~  => ~_jaheir4~
+  ~_jaheir~  => ~_jaheir6~
+  ~_kagain~  => ~_kagain2~
+  ~_kagain~  => ~_kagain4~
+  ~_kagain~  => ~_kagain6~
+  ~_khalid~  => ~_khalid2~
+  ~_khalid~  => ~_khalid4~
+  ~_khalid~  => ~_khalid6~
+  ~_kivan~   => ~_kivan4~
+  ~_kivan~   => ~_kivan6~
+  ~_minsc~   => ~_minsc2~
+  ~_minsc~   => ~_minsc4~
+  ~_minsc~   => ~_minsc6~
+  ~_montar~  => ~_montar2~
+  ~_montar~  => ~_montar4~
+  ~_montar~  => ~_montar6~
+  ~_quayle~  => ~_quayle4~
+  ~_quayle~  => ~_quayle6~
+  ~_safana~  => ~_safana4~
+  ~_safana~  => ~_safana6~
+  ~_sharte~  => ~_sharte4~
+  ~_sharte~  => ~_sharte6~
+  ~_skie~    => ~_skie6~
+  ~_tiax~    => ~_tiax4~
+  ~_tiax~    => ~_tiax6~
+  ~_viconi~  => ~_viconi4~
+  ~_viconi~  => ~_viconi6~
+  ~_xan~     => ~_xan4~
+  ~_xan~     => ~_xan6~
+  ~_xzar~    => ~_xzar2~
+  ~_xzar~    => ~_xzar4~
+  ~_xzar~    => ~_xzar6~
+  ~_yeslic~  => ~_yeslic5~
+  ~aerie6~   => ~aerie10~
+  ~aerie6~   => ~aerie11~
+  ~aerie6~   => ~aerie12~
+  ~aerie6~   => ~aerie7~
+  ~aerie6~   => ~aerie9~
+  ~ajanti~   => ~ajanti4~
+  ~ajanti~   => ~ajanti6~
+  ~alora~    => ~alora6~
+  ~anomen6~  => ~anomen10~
+  ~anomen6~  => ~anomen12~
+  ~anomen6~  => ~anomen7~
+  ~anomen6~  => ~anomen8~
+  ~anomen6~  => ~anomen9~
+  ~bgquayle~ => ~quayle4~
+  ~bgquayle~ => ~quayle6~
+  ~bgxan~    => ~xan4~
+  ~bgxan~    => ~xan6~
+  ~bgxzar~   => ~xzar2~
+  ~bgxzar~   => ~xzar4~
+  ~bgxzar~   => ~xzar6~
+  ~branwe~   => ~branwe5~
+  ~c!dela10~ => ~c!dela11~
+  ~c!dela10~ => ~c!dela13~
+  ~c!dela10~ => ~c!dela15~
+  ~cernd10~  => ~cernd12~
+  ~cernd10~  => ~cernd13~
+  ~cernd10~  => ~cernd13b~
+  ~cernd10~  => ~cernd14~
+  ~chloe7~   => ~chloe13~
+  ~chloe7~   => ~chloe15~
+  ~chloe7~   => ~chloe9~
+  ~coran~    => ~coran5~
+  ~d0alassa~ => ~d0alas25~
+  ~dorn~     => ~dorn2~
+  ~dorn~     => ~dorn4~
+  ~dorn~     => ~dorn6~
+  ~dynahe~   => ~dynahe2~
+  ~dynahe~   => ~dynahe4~
+  ~dynahe~   => ~dynahe6~
+  ~edwin~    => ~edwin2~
+  ~edwin~    => ~edwin4~
+  ~edwin~    => ~edwin6~
+  ~edwin7~   => ~edwin11~
+  ~edwin7~   => ~edwin12~
+  ~edwin7~   => ~edwin13~
+  ~edwin7~   => ~edwin15~
+  ~edwin7~   => ~edwin9~
+  ~faldor~   => ~faldor5~
+  ~fwghar04~ => ~fwghar25~
+  ~garric~   => ~garric2~
+  ~garric~   => ~garric4~
+  ~garric~   => ~garric6~
+  ~haer10~   => ~haer11~
+  ~haer10~   => ~haer13~
+  ~haer10~   => ~haer15~
+  ~haer10~   => ~haer19~
+  ~imoen1~   => ~imoen2~
+  ~imoen1~   => ~imoen4~
+  ~imoen1~   => ~imoen61~
+  ~imoen10~  => ~imoen15~
+  ~imoen10~  => ~imoen211~
+  ~imoen10~  => ~imoen213~
+  ~j#indi01~ => ~j#indi03~
+  ~j#indi01~ => ~j#indi04~
+  ~j#klsy09~ => ~j#klsy11~
+  ~j#klsy09~ => ~j#klsy12~
+  ~j#klsy09~ => ~j#klsy13~
+  ~j#klsy09~ => ~j#klsy25~
+  ~jaheir~   => ~jaheir2~
+  ~jaheir~   => ~jaheir4~
+  ~jaheir~   => ~jaheir6~
+  ~jaheir7~  => ~jahei14~
+  ~jaheir7~  => ~jaheir11~
+  ~jaheir7~  => ~jaheir12~
+  ~jaheir7~  => ~jaheir8~
+  ~jan8~     => ~jan10~
+  ~jan8~     => ~jan11~
+  ~jan8~     => ~jan12~
+  ~jan8~     => ~jan15~
+  ~jcbruce~  => ~jcbruce2~
+  ~kagain~   => ~kagain2~
+  ~kagain~   => ~kagain4~
+  ~kagain~   => ~kagain6~
+  ~keldor8~  => ~keldor10~
+  ~keldor8~  => ~keldor12~
+  ~keldor8~  => ~keldor14~
+  ~keldor8~  => ~keldor9~
+  ~keto08~   => ~keto10~
+  ~keto08~   => ~keto12~
+  ~khalid~   => ~khalid2~
+  ~khalid~   => ~khalid4~
+  ~khalid~   => ~khalid6~
+  ~kido~     => ~kido25~
+  ~kindrek~  => ~kindre25~
+  ~kivan~    => ~kivan4~
+  ~kivan~    => ~kivan6~
+  ~korgan8~  => ~korgan11~
+  ~korgan8~  => ~korgan12~
+  ~korgan8~  => ~korgan15~
+  ~korgan8~  => ~korgan9~
+  ~m#ambr10~ => ~m#ambr12~
+  ~m#ambr10~ => ~m#ambr14~
+  ~m#ambr10~ => ~m#ambr15~
+  ~mazzy8~   => ~mazzy11~
+  ~mazzy8~   => ~mazzy12~
+  ~mazzy8~   => ~mazzy15~
+  ~mazzy8~   => ~mazzy9~
+  ~mgwika~   => ~mgwika25~
+  ~minsc~    => ~minsc2~
+  ~minsc~    => ~minsc4~
+  ~minsc~    => ~minsc6~
+  ~minsc7~   => ~minsc10~
+  ~minsc7~   => ~minsc12~
+  ~minsc7~   => ~minsc15~
+  ~minsc7~   => ~minsc8~
+  ~minsc7~   => ~minsc9~
+  ~montar~   => ~montar2~
+  ~montar~   => ~montar4~
+  ~montar~   => ~montar6~
+  ~nalia8~   => ~nalia10~
+  ~nalia8~   => ~nalia11~
+  ~nalia8~   => ~nalia13~
+  ~nalia8~   => ~nalia15~
+  ~nalia8~   => ~nalia18~
+  ~nath07~   => ~nath08~
+  ~nath07~   => ~nath10~
+  ~neera~    => ~neera2~
+  ~neera~    => ~neera4~
+  ~neera~    => ~neera6~
+  ~o#xan09~  => ~o#xan11~
+  ~o#xan09~  => ~o#xan12~
+  ~o#xan09~  => ~o#xan13~
+  ~r!kit07~  => ~r!kit09~
+  ~r!kit07~  => ~r!kit11~
+  ~r!kit07~  => ~r!kit13~
+  ~r!kit07~  => ~r!kit15~
+  ~rasaad~   => ~rasaad2~
+  ~rasaad~   => ~rasaad4~
+  ~rasaad~   => ~rasaad6~
+  ~safana~   => ~safana4~
+  ~safana~   => ~safana6~
+  ~sc#hub~   => ~sc#hub25~
+  ~sdnpc12~  => ~sdnpc18~
+  ~sharte~   => ~sharte4~
+  ~sharte~   => ~sharte6~
+  ~sk#neht1~ => ~sk#neht3~
+  ~sk#neht1~ => ~sk#neht5~
+  ~skie~     => ~skie6~
+  ~sola5~    => ~sola10~
+  ~sola5~    => ~sola12~
+  ~sola5~    => ~sola15~
+  ~sola5~    => ~sola17~
+  ~sola5~    => ~sola7~
+  ~subru05~  => ~subru09~
+  ~subru05~  => ~subru17~
+  ~sufinch1~ => ~sufinch2~
+  ~sufinch1~ => ~sufinch4~
+  ~tiax~     => ~tiax4~
+  ~tiax~     => ~tiax6~
+  ~tlxan~    => ~tlxantob~
+  ~valyg8~   => ~valyg11~
+  ~valyg8~   => ~valyg12~
+  ~valyg8~   => ~valyg14~
+  ~valyg8~   => ~valyg9~
+  ~viconi~   => ~viconi4~
+  ~viconi~   => ~viconi61~
+  ~viconi6~  => ~viconi11~
+  ~viconi6~  => ~viconi13~
+  ~viconi6~  => ~viconi16~
+  ~viconi6~  => ~viconi8~
+  ~viconi6~  => ~viconi9~
+  ~willyb~   => ~willyb2~
+  ~yeslic~   => ~yeslic5~
+  ~yoshi7~   => ~yoshi10~
+  ~yoshi7~   => ~yoshi11~
+  ~yoshi7~   => ~yoshi12~
+  ~yoshi7~   => ~yoshi8~
+END
 
-      ACTION_IF ((FILE_EXISTS_IN_GAME ~%orig%.cre~) AND (FILE_EXISTS_IN_GAME ~%dest%.cre~)) THEN BEGIN
-
-        COPY_EXISTING ~%orig%.cre~ ~override/%dest%.cre~
-          LAUNCH_PATCH_MACRO ~tob_style_npcs~
-          BUT_ONLY_IF_IT_CHANGES
-        
-      END
-    END
-  END
-  BUT_ONLY
-
+// avoid BGEE, BGT namespace collisions
 ACTION_IF FILE_EXISTS_IN_GAME ~oh9350.are~ BEGIN
 
-  // bgt, bgee namespace conflicts
-  COPY ~BG2_Tweaks/2da/tob_style_npcs_bgee.2da~ ~BG2_Tweaks/2da/tob_style_npcs_bgee.2da~
-    COUNT_2DA_ROWS ~2~ "rows"
-    FOR ( index = 0 ; index < rows ; index = index + 1 ) BEGIN
-      READ_2DA_ENTRY index 0 2 "orig"
-      READ_2DA_ENTRY index 1 2 "dest"
-      INNER_ACTION BEGIN
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_tob_style_npcs BEGIN
+    ~imoen1~   => ~imoen6~
+    ~quayle~   => ~quayle4~
+    ~quayle~   => ~quayle6~
+    ~viconi~   => ~viconi6~
+    ~xan~      => ~xan4~
+    ~xan~      => ~xan6~
+    ~xzar~     => ~xzar2~
+    ~xzar~     => ~xzar4~
+    ~xzar~     => ~xzar6~
+  END
 
-        ACTION_IF ((FILE_EXISTS_IN_GAME ~%orig%.cre~) AND (FILE_EXISTS_IN_GAME ~%dest%.cre~)) THEN BEGIN
+END
 
-          COPY_EXISTING ~%orig%.cre~ ~override/%dest%.cre~
-            LAUNCH_PATCH_MACRO ~tob_style_npcs~
-            BUT_ONLY_IF_IT_CHANGES
+ACTION_PHP_EACH cd_tob_style_npcs AS orig => dest BEGIN
 
-        END
-      END
-    END
-    BUT_ONLY
+  ACTION_IF ((FILE_EXISTS_IN_GAME ~%orig%.cre~) AND (FILE_EXISTS_IN_GAME ~%dest%.cre~)) THEN BEGIN
+
+    COPY_EXISTING ~%orig%.cre~ ~override/%dest%.cre~
+      LAUNCH_PATCH_MACRO ~tob_style_npcs~
+      BUT_ONLY_IF_IT_CHANGES
+
+  END
 
 END
 
@@ -10023,24 +9063,27 @@ ACTION_IF FILE_EXISTS_IN_GAME ~cdt04020.g3~ THEN BEGIN
   // load patch macro
   INCLUDE ~bg2_tweaks/lib/tob_style_npcs.tpa~
   
-  // all variants
-  COPY_EXISTING ~BG2_Tweaks/2da/tob_style_npcs_khalid.2da~ ~BG2_Tweaks/2da/tob_style_npcs_khalid.2da~
-    COUNT_2DA_ROWS ~2~ "rows"
-    FOR ( index = 0 ; index < rows ; index = index + 1 ) BEGIN
-      READ_2DA_ENTRY index 0 2 "orig"
-      READ_2DA_ENTRY index 1 2 "dest"
-      INNER_ACTION BEGIN
+  ACTION_CLEAR_ARRAY cd_tob_style_npcs
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_tob_style_npcs BEGIN
+    ~_khalid~  => ~_khalid2~
+    ~_khalid~  => ~_khalid4~
+    ~_khalid~  => ~_khalid6~
+    ~khalid~   => ~khalid2~
+    ~khalid~   => ~khalid4~
+    ~khalid~   => ~khalid6~
+  END
   
-        ACTION_IF ((FILE_EXISTS_IN_GAME ~%orig%.cre~) AND (FILE_EXISTS_IN_GAME ~%dest%.cre~)) THEN BEGIN
-
-          COPY_EXISTING ~%orig%.cre~ ~override/%dest%.cre~
-            LAUNCH_PATCH_MACRO ~tob_style_npcs~
-            BUT_ONLY_IF_IT_CHANGES
-          
-        END
-      END
+  ACTION_PHP_EACH cd_tob_style_npcs AS orig => dest BEGIN
+  
+    ACTION_IF ((FILE_EXISTS_IN_GAME ~%orig%.cre~) AND (FILE_EXISTS_IN_GAME ~%dest%.cre~)) THEN BEGIN
+  
+      COPY_EXISTING ~%orig%.cre~ ~override/%dest%.cre~
+        LAUNCH_PATCH_MACRO ~tob_style_npcs~
+        BUT_ONLY_IF_IT_CHANGES
+  
     END
-    BUT_ONLY
+
+  END
 
 END
 
@@ -10201,24 +9244,27 @@ ACTION_IF FILE_EXISTS_IN_GAME ~cdt04020.g3~ THEN BEGIN
   // load patch macro
   INCLUDE ~bg2_tweaks/lib/tob_style_npcs.tpa~
   
-  // all variants
-  COPY_EXISTING ~BG2_Tweaks/2da/tob_style_npcs_montaron.2da~ ~BG2_Tweaks/2da/tob_style_npcs_montaron.2da~
-    COUNT_2DA_ROWS ~2~ "rows"
-    FOR ( index = 0 ; index < rows ; index = index + 1 ) BEGIN
-      READ_2DA_ENTRY index 0 2 "orig"
-      READ_2DA_ENTRY index 1 2 "dest"
-      INNER_ACTION BEGIN
-  
-        ACTION_IF ((FILE_EXISTS_IN_GAME ~%orig%.cre~) AND (FILE_EXISTS_IN_GAME ~%dest%.cre~)) THEN BEGIN
+  ACTION_CLEAR_ARRAY cd_tob_style_npcs
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_tob_style_npcs BEGIN
+    ~_montar~  => ~_montar2~
+    ~_montar~  => ~_montar4~
+    ~_montar~  => ~_montar6~
+    ~montar~   => ~montar2~
+    ~montar~   => ~montar4~
+    ~montar~   => ~montar6~
+  END
 
-          COPY_EXISTING ~%orig%.cre~ ~override/%dest%.cre~
-            LAUNCH_PATCH_MACRO ~tob_style_npcs~
-            BUT_ONLY_IF_IT_CHANGES
+  ACTION_PHP_EACH cd_tob_style_npcs AS orig => dest BEGIN
 
-        END
-      END
+    ACTION_IF ((FILE_EXISTS_IN_GAME ~%orig%.cre~) AND (FILE_EXISTS_IN_GAME ~%dest%.cre~)) THEN BEGIN
+
+      COPY_EXISTING ~%orig%.cre~ ~override/%dest%.cre~
+        LAUNCH_PATCH_MACRO ~tob_style_npcs~
+        BUT_ONLY_IF_IT_CHANGES
+
     END
-    BUT_ONLY
+
+  END
 
 END
 
