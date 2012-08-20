@@ -20,7 +20,7 @@
     @11 = ~Cosmetic Changes~
     @12 = ~Throne of Bhaal is required for this component.~
     @13 = ~Content Changes~
-    @14 = ~This component is only for Tutu or BGT.~
+    @14 = ~This component is only for Tutu or BGT or Baldur's Gate: Enhanced Edition.~
     @15 = ~This component is only for Tutu.~
     @16 = ~The functionality of this component is either already included or superceded by one of your already installed mods.~
     @17 = ~Requires the Make +x/+y Weapons Consistent component to be installed.~
@@ -30,6 +30,8 @@
   a) Yes
   b) No~
     @21 = ~Requires the 'Change Experience Point Cap: Remove Experience Cap' component.~
+    @22 = ~This component is not available for Baldur's Gate: Enhanced Edition.~
+    @23 = ~This component is only for Tutu or Baldur's Gate: Enhanced Edition.~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -67,6 +69,8 @@
 Armor (Galactygon)~
 
  @13000 = ~Force All Dialogue to Pause Game~
+
+ @14000 = ~Fix Boo's Squeak~
     
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -120,6 +124,8 @@ STATISTICS:
 
 Capacity: 100 bottles
 Weight: 2~
+@108005 = ~Bag of Holding~
+@108006 = ~As with other magical bags, this one appears to be a common cloth sack of about 2 feet by 4 feet in size. The bag of holding opens into a nondimensional space, and its inside is larger than its outside dimensions. Regardless of what is put into this item, the bag always weighs a fixed amount.~
 
 @109000 = ~Exotic Item Pack~
 @109001 = ~Quiver of Plenty~
@@ -208,6 +214,8 @@ Beast Master~
 @109020 = ~Intelligence Modification~
 @109021 = ~Strength Modification~
 @109022 = ~Gullykin Temple~
+@109023 = ~Ioun Stone~
+@109024 = ~This is a small stone that floats in an orbit around the owner's head.  Simply equip the stone to set it in its orbit.  These obviously magical stones have different properties depending on their color.~
 
 @110000 = ~Reveal City Maps When Entering Area~
 

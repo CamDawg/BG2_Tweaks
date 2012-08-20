@@ -7,19 +7,40 @@
 
 
 <body>
-<ul>
 
-<!--v9.03 - integrated the following fixes:-->
+<h3>v9.04 - integrated the following fixes:</h3>
+
+<ul>
+<li>High level stuff to make the diffs go wild (don't even think of a merge this until I can play around  on BG2/Tutu installs)
+  <ul>
+    <li>BGEE compatibility, which mainly meant adding a <strong>lot</strong> of conditional  commands to account for lack of SoA items, string re-maps, and avoiding area regexps (don't know if it's WeiDU or a bad key reference)</li>
+    <li>Since I was doing it already for BGEE compatibility, tried to make the ridiculous ALLOW_MISSING block redundant by throwing in even more conditional arguments</li>
+    <li>Why did I think a Cam's House Rules GROUP was a good idea? </li>
+  </ul>
+</li>
+<li>Added 'Fix Boo's Squeak', something I've been meaning to do <em>forever</em></li>
+<li>Avatar Morphing Script no longer leaves an unnecessary script in the override</li>
+<li>Fixed pink highlight outline for elven chain in Icon Improvements. Also now distribute BG2 leather armor ground BAM since BGEE lacks it</li>
+<li>Hakt and Maneira had ranged weapons equipped, so Exotic Items now swaps their melee weapon instead of making them dual-wielders</li>
+<li>Allow Thief Skills and Stealth in Heavy Armor now adjusts the ranger stealth table to go up to 200, allowing very high level rangers to creep around in heavy armor</li>
+<li>Added winter wolf pelts to Gem/Jewelry stacking<a href="mailto:"></a></li>
+<li>Added BG2FP copy of the Book of Infinite Spells to Sellable Items</li>
+<li>Made some tentative readme changes</li>
+</ul>
+
+<h3>v9.03 - integrated the following fixes:</h3>
+
+<ul>
 <li><a href="http://forums.gibberlings3.net/index.php?showtopic=24356&amp;view=findpost&amp;p=201339">Fixed bugs in the "Add Save Penalties for Spells Cast by High-Level Casters (BETA)" component.</a> (Add Save Penalties for Spells Cast by High-Level Casters (BETA))</li>
 <li><a href="http://forums.gibberlings3.net/index.php?s=09163d67e411d7d6e942cffc904a7600&showtopic=24356&st=0&p=201270&#entry201270">Fixed incorrect ordering in A#AMNM.CRE which could cause issues in case the file was subsequently patched by other mods</a> (Improved Athkatlan City Guard)</li>
-
-<!--v9.02 - integrated the following fixes:-->
+</ul>
+<h3>v9.02 - integrated the following fixes:</h3><ul>
 <li><a href="http://forums.gibberlings3.net/index.php?s=32922f3321d97114bcd094d1ea6c68f3&showtopic=24332&st=0&p=200940&#entry200940">Updated the "Restore SoA Load Screen Logo" component to use MOVE instead of system commands</a> (Restore SoA Load Screen Logo)</li>
 <li><a href="http://forums.gibberlings3.net/index.php?s=32922f3321d97114bcd094d1ea6c68f3&showtopic=24234">The "Triple-Class HLA Tables" component was relying on code from the BG2 Fixpack and wouldn't work if it wasn't installed. The relevant code is now mirrored in BG2 Tweaks</a> (Triple-Class HLA Tables)</li>
 
 
-
-<!--v9.01 - integrated the following fixes:-->
+</ul>
+<h3>v9.01 - integrated the following fixes:</h3><ul>
 <li><a href="http://forums.gibberlings3.net/index.php?showtopic=24289">Both varieties of the "Higher HP on Level Up" component now check for TobEx to ensure that the Barbarian HP table is adjusted properly</a> (Higher HP on Level Up)</li>
 <li><a href="http://www.shsforums.net/topic/46777-research-the-my-transition-is-stuck-thread/page__p__534991#entry534991">The "Faster chapter 1&2 cutscenes and dreams" component is now auto-skipped if BGT is detected in order to prevent a compatibility issue</a> (Faster chapter 1&2 cutscenes and dreams)</li>
 <li><a href="http://forums.gibberlings3.net/index.php?s=39db238f70d6d38669d9f64caf9eccd0&showtopic=19329&st=0&p=183704&#entry183704">The "Use BG Walking Speeds (BETA)" component no longer corrupts various creature files</a> (Use BG Walking Speeds (BETA))</li>

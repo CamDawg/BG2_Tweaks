@@ -45,21 +45,57 @@ APPEND ~kit.ids~ ~0x0000 BARBARIAN~
 APPEND ~kit.ids~ ~0x0000 WILDMAGE~
   UNLESS ~\bWILDMAGE\b~
 
-COPY_EXISTING_REGEXP GLOB ~Anomen[0-9]+\.cre$~  ~override~
-                          ~Haer[0-9]+\.cre$~    ~override~
-                          ~_?Imoen[0-9]+\.cre$~ ~override~
-                          ~Korgan[0-9]+\.cre$~  ~override~
-                          ~Mazzy[0-9]+\.cre$~   ~override~
-  PATCH_IF (SOURCE_SIZE > 0x2d3) THEN BEGIN // protects against invalid files
-    READ_LONG 0x0244 KIT_VALUE
-    PATCH_IF (KIT_VALUE = 0x00) BEGIN
-      WRITE_LONG 0x0244 0x40000000
-    END ELSE
-    PATCH_IF (KIT_VALUE = 0x20) BEGIN
-      WRITE_LONG 0x0244 0x400d0000
-    END ELSE
-    PATCH_IF (KIT_VALUE = 0x010000) BEGIN
-      WRITE_LONG 0x0244 0x40010000
-    END
+ACTION_FOR_EACH crefile IN
+  _imoen1
+  _imoen2
+  _imoen4
+  _imoen6
+  anomen10
+  anomen12
+  anomen6
+  anomen7
+  anomen8
+  anomen9
+  haer10  
+  haer11
+  haer13
+  haer15
+  haer19
+  imoen1  
+  imoen10 
+  imoen15
+  imoen2
+  imoen211
+  imoen213
+  imoen4
+  imoen61
+  korgan11
+  korgan12
+  korgan15
+  korgan8  
+  korgan9
+  mazzy11
+  mazzy12
+  mazzy15
+  mazzy8  
+  mazzy9
+  BEGIN
+  
+  ACTION_IF FILE_EXISTS_IN_GAME ~%crefile%.cre~ BEGIN
+  
+    COPY_EXISTING ~%crefile%.cre~ ~override~
+      READ_LONG 0x0244 KIT_VALUE
+      PATCH_IF (KIT_VALUE = 0x00) BEGIN
+        WRITE_LONG 0x0244 0x40000000
+      END ELSE
+      PATCH_IF (KIT_VALUE = 0x20) BEGIN
+        WRITE_LONG 0x0244 0x400d0000
+      END ELSE
+      PATCH_IF (KIT_VALUE = 0x010000) BEGIN
+        WRITE_LONG 0x0244 0x40010000
+      END
+    BUT_ONLY
+
   END
-  BUT_ONLY_IF_IT_CHANGES
+
+END

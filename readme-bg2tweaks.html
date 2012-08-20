@@ -14,7 +14,7 @@
 	and <a href="&#109;&#97;&#x69;&#x6c;&#x74;o:i&#100;ob&#x65;&#x6b;&#x40;gi&#98;ber&#x6c;i&#x6e;gs3&#46;ne&#116;">Idobek</a> <br /> 
     On the web: <a href="http://www.gibberlings3.net/bg2tweaks/">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showforum=34">discussion
     forum</a></strong></p> 
-  <p><strong> Version 9 - <a href="http://www.gibberlings3.net/downloads/#bg2tweaks">Check
+  <p><strong> Version 9.04 - <a href="http://www.gibberlings3.net/downloads/#bg2tweaks">Check
         for the most recent version</a></strong><br /> 
     <strong> Languages:</strong> Chinese, Czech, English, French, German, Italian,
     Korean, Polish, Russian, and Spanish<br /> 
@@ -32,9 +32,8 @@
     others are needed fixes, and others simply make dealing with the more irritating
     aspects of the game engine easier. Each component can be installed separately
     so the player can pick and choose only which ones they wish to install. </p> 
-  <p>This mod works on normal Baldur's Gate II games as well as either of the
-    two Baldur's Gate conversion projects, BG1Tutu (Tutu) and Baldur's Gate Trilogy
-    (<acronym title="Baldur's Gate Trilogy">BGT</acronym>). </p> 
+  <p>This mod works on normal Baldur's Gate II games as well asBG1Tutu (Tutu), Baldur's Gate Trilogy
+    (<acronym title="Baldur's Gate Trilogy">BGT</acronym>), and Baldur's Gate: Enhanced Edition (<acronym title="Baldur's Gate: Enhanced Edition">BGEE</acronym>).</p> 
 </div> 
 <h2>Compatibility</h2> 
 <div class="section"> 
@@ -59,7 +58,8 @@
       the tweak can not be made on the fly, so items to be modified are kept
       on static lists rather than a list made at installation time. If you find
       items not being modified by a certain tweak please report it to the <a href="http://forums.gibberlings3.net/?showforum=34">Tweak
-      Packs forum</a>. </li> 
+      Packs forum</a>. </li>
+    <li>As of version 10, the mod is intended to be fully compatible with Baldur's Gate: Enhanced Edition</li> 
   </ul> 
 </div> 
 <h2>Installation</h2> 
@@ -83,7 +83,20 @@
     If properly extracted, you should have a BG2_Tweaks folder, Setup-BG2_Tweaks,
     and Setup-BG2_Tweaks.command in your <acronym title="Baldur's Gate II">BG2</acronym> folder.
     To install, simply double-click <strong>Setup-BG2_Tweaks.command</strong> and
-    follow the instructions on screen.</p> 
+    follow the instructions on screen.</p>
+  <p><strong>Linux</strong><br />
+    Download the latest version of <acronym title="Weimer Dialogue Utility">WeiDU</acronym> for
+    Linux from <a href="http://www.weidu.org/~thebigg">weidu.org</a> and extract
+    (at least) the <acronym title="Weimer Dialogue Utility">WeiDU</acronym>,
+    weinstall and tolower executables in a $PATH directory (E.G. /usr/bin). Following that, open a terminal, cd to your <acronym title="Baldur's Gate II">BG2</acronym> installation directory, run `tolower' and answer Y to both queries.</p>
+  <p> You can avoid running the second option (linux.ini)
+    if you've already ran it once in the same directory. To save time, the
+    archive is already tolowered, so there's no need to run the first option
+    (lowercasing file names) either if you've extracted only this mod since
+    the last time you lower cased file name. If you're unsure, running tolower and choosing both
+    options is the safe bet.</p>
+  <p> After that, run 'weinstall bg2_tweaks' from your game installation directory
+    to install or uninstall the mod. </p>
 </div> 
 <h2>Contents</h2> 
 <div class="section"> 
@@ -101,10 +114,10 @@
       affect <em>all</em> helmets in the game, including helmets introduced by
       mods.</p> 
   <p><strong>Imoen Avatar Change</strong><br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br /> 
     This component will change Imoen's avatar from a thief to a mage.</p> 
   <p><strong>Nalia Avatar Change</strong><br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br />
     This component will change Nalia's avatar from a mage to a thief.</p> 
   <p><strong>Viconia Skin Color Change</strong><br /> 
     A fan request, this component will change Viconia's in-game avatar to have
@@ -141,17 +154,17 @@
       the schools. This component changes the spellcasting animations to those
       of Icewind Dale. Note that this is purely a cosmetic change--the spells
       themselves function exactly as before. Screenshots for comparison are available
-      in the <a href="http://www.gibberlings3.net/portraits/thumbnails.php?album=18">Tweaks
+      in the <a href="http://forums.gibberlings3.net/index.php?app=gallery&amp;album=27">Tweaks
       gallery</a>. </p> 
   <p><strong>Restore <acronym title="Shadows of Amn">SoA</acronym> Load Screen
-      Logo</strong><br /> 
-    <em>Non-Tutu</em>, <em>Requires Throne of Bhaal </em><br /> 
+      Logo</strong><br />
+      <em>BG2, BGT only</em>, <em>Requires Throne of Bhaal </em><br /> 
     This component will restore the <acronym title="Shadows of Amn">SoA</acronym> logo
     to the load screens with Throne of Bhaal installed. On the left is the load
     screen with Throne of Bhaal installed; on the right is the restored Shadows
     of Amn screen with this component. This component will not work if you have
     biffed your override folder, a common practice for many large mods. Screenshots
-    for comparison are available in the <a href="http://www.gibberlings3.net/portraits/thumbnails.php?album=18">Tweaks
+    for comparison are available in the <a href="http://forums.gibberlings3.net/index.php?app=gallery&amp;image=487">Tweaks
     gallery</a>. </p> 
   <p><strong>Disable Portrait Icons Added by Equipped Items</strong><br /> 
     This component will prevent items from displaying the small icons (fire resistance,
@@ -178,7 +191,10 @@
   <p><strong>Force All Dialogue to Pause</strong><br /> 
     This component will change all dialogue to pausing. No longer will bandits
       attack in the middle of a conversation. This component will affect <em>all</em> dialogues
-      in the game, including ones introduced by mods. </p> 
+      in the game, including ones introduced by mods. </p>
+  <p><strong>Fix Boo's Squeak</strong><br />
+    When you click on Boo in Minsc's inventory you're treated to a terrible, sped-up sound of someone saying 'squeak'. This component replaces this awful noise with an actual Boo squeak pared from one of Minsc's sound files.
+  </p> 
   <h3>Content Changes </h3> 
   <p>These components make alterations to content in order to provide a better
     player experience. </p> 
@@ -197,21 +213,21 @@
     trigger, provided this component is installed after them. </p> 
   <p><strong>Alter <acronym title="Hit Point">HP</acronym> Triggers for <acronym title="Non-Player Character">NPC</acronym> Wounded
       Dialogues</strong><br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br />
     Many <acronym title="Non-Player Characters">NPCs</acronym> have banters for
     when they are wounded. However, the triggers are typically for <acronym title="Hit Point">HP</acronym> levels
     so low that many players never see them. This component will raise the <acronym title="Hit Point">HP</acronym> trigger
     level so that the player has a better chance of seeing these dialogues.</p> 
-  <p><strong>Reveal Wilderness Areas Before Chapter Six</strong><br /> 
-    <em>Non-Tutu</em><br /> 
+  <p><strong>Reveal Wilderness Areas Before Chapter Six</strong><br />
+    <em>BG2, BGT only</em><br />
     This component will allow you to travel to the three wilderness areas from
-    the City Gates area at any point in the game. Previously, the Small Teeth
-    Pass, North Forest, and Forest of Tethyr areas were not available until chapter
-    six. Please note that while not incompatible per se, this may cause conflicts
-    with mods that set encounters in these areas that assume you've completed
-    the story through chapter six. </p> 
+  the City Gates area at any point in the game. Previously, the Small Teeth
+  Pass, North Forest, and Forest of Tethyr areas were not available until chapter
+  six. Please note that while not incompatible per se, this may cause conflicts
+  with mods that set encounters in these areas that assume you've completed
+  the story through chapter six. </p> 
   <p><strong>Make Cloakwood Areas Available Before Completing the Bandit Camp </strong><br /> 
-    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym> Only</em> <br /> 
+    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT, BGEE</acronym> Only</em> <br /> 
     This component will allow you to travel to the Cloakwood forest from a nearby
     area prior to completing the Bandit Camp. This will allow you to explore,
     complete Cloakwood quests, and pick up Cloakwood <acronym title="Non-Player Characters">NPCs</acronym> earlier
@@ -220,7 +236,7 @@
     just the mines themselves inaccessible until after the Bandit Camp. </p> 
   <p>This functionality is also available from the <acronym title="Baldur's Gate">BG1</acronym> <acronym title="Non-Player Character">NPC</acronym> Project.</p> 
   <p><strong>Improved Athkatlan City Guard (Andyr)</strong><br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br />
     The Amnish guards aren't really tough enough to keep the peace in the cities,
     what with all the thieves and vampires around. This component makes the various
     Amnish guards and the like slightly tougher, and gives them a chance of summoning
@@ -231,7 +247,7 @@
     loot for randomly going around killing soldiers, either. But it might make
     such activities a little more interesting.</p> 
   <p><strong>Gradual Drow Item Disintegration </strong> <br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br />
     Rather than your drow items turning to dust immediately upon exiting the
     Underdark, they will gradually degrade over time. They also have a chance
     to break every time they are used in combat. Please note that this component
@@ -239,7 +255,7 @@
     slowdowns when you have a very large number of items in your inventory and
     bags of holding. </p> 
   <p><strong>Breakable Nonmagical Armor, Helms, and Shields<br /> 
-    </strong><em>Tutu Only</em> <br /> 
+    </strong><em>Tutu, BGEE Only</em> <br /> 
     The iron crisis in the Sword Coast means that nonmagical iron weapons can
     break when used in combat. This component will extend the same vulnerability
     to nonmagical iron armor, helmets, and shields to close an oversight by the
@@ -263,7 +279,7 @@
     to the Nashkel General Store, and a bag of holding at the Sorcerous Sundries
     in Baldur's Gate.</p> 
   <p><strong>Exotic Items Pack</strong><br /> 
-    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym> Only</em> <br /> 
+    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT, BGEE</acronym> Only</em> <br /> 
     This component adds a handful of weapons and items available in Baldur's
     Gate II and scatters them throughout stores, creatures, and containers in
     the Baldur's Gate portion of the game. Items include katanas, wakizashis,
@@ -275,7 +291,7 @@
   <p>This component also fixes a known bug in the game, in that the merchant
     at Gullykin and the Helm temple in Nashkel shared the same store file. </p> 
   <p><strong>Reveal City Maps</strong><br /> 
-    <em>Tutu Only </em> <br /> 
+    <em>Tutu, BGEE Only </em> <br /> 
     In Baldur's Gate II, city maps were revealed as soon as you entered the area.
     This component will reveal the maps of Baldur's Gate, Nashkel, Beregost,
     Candlekeep, and (if Tales of the Sword Coast is installed) Ulgoth's Beard.
@@ -408,7 +424,7 @@
     4 turns. Do you want Fire Elementals forever or Mighty Big Tanks for a short
     time? You decide. </p> 
   <p><strong>Multiple Strongholds (Sabre, Baldurdash, Weimer) </strong><br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br />
     This component comes in two variants. The first is the original from Ease
     of Use, which allows any character, regardless of class, to acquire as many
     strongholds as wanted. The second variant is similar, but retains the class
@@ -419,10 +435,10 @@
     Druid Grove. In either variant of this component, the player can now decline
     these strongholds when offered. </p> 
   <p><strong>Bonus Merchants (Baldurdash, Weimer) </strong><br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br />
     This adds Joluv and Diedre to the Copper Coronet and Ribald's Mart, respectively. </p> 
   <p><strong>Female Edwina (Davide Carte, Wendy Yung, Weimer) </strong><br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br />
     This patch gives Edwina a female portrait to go with her female soundset
     and female paper doll. This patch was originally written by Davide Carte.
     This version includes Wendy Yung's &quot;Edwina&quot; portrait, a modified
@@ -431,14 +447,14 @@
   <p> You can override the portrait by putting your own Royo4L.bmp and Royo4S.bmp
     files in the override directory.</p> 
   <p> <strong>Romance Bug Fixes (Sabre, Richardson)</strong><br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only</em><br />
     This module applies some bug fixes to the romance scripts. It's highly recommended
     that you at least install this module to fix a few glitches in the original
     game romance scripts. If the <acronym title="Baldur's Gate II"><a href="http://www.gibberlings3.net/bg2fixpack/">BG2</a></acronym><a href="http://www.gibberlings3.net/bg2fixpack/"> Fixpack</a> is
     installed, this component will be skipped as this fix is already included
     in the Fixpack Core Fixes. </p> 
-  <p> <strong>Imoen ToB Dialogue Fix (jcompton)</strong> <br /> 
-    <em>Non-Tutu</em>, <em>Requires Throne of Bhaal </em><br /> 
+  <p> <strong>Imoen ToB Dialogue Fix (jcompton)</strong> <br />
+    <em>BG2, BGT only</em>, <em>Requires Throne of Bhaal </em><br /> 
     This fixes about 15 places where Imoen had banter dialogue in <acronym title="Throne of Bhaal">ToB</acronym> but
     you couldn't see it because of a spelling error in the game. If the <acronym title="Baldur's Gate II"><a href="http://www.gibberlings3.net/bg2fixpack/">BG2</a></acronym><a href="http://www.gibberlings3.net/bg2fixpack/"> Fixpack</a> is
     installed, this component will be skipped as this fix is already included
@@ -451,8 +467,8 @@
     Since this component had some issues in Tutufix (notably when interacting
     with polymorph or haste/slow spells) it's being labeled a beta until the
     issues can be worked out. </p> 
-  <p> <strong>Allow Cromwell to Upgrade Watcher's Keep Items</strong><br /> 
-    <em>Non-Tutu</em>, <em>Requires Throne of Bhaal </em><br /> 
+  <p> <strong>Allow Cromwell to Upgrade Watcher's Keep Items</strong><br />
+    <em>BG2, BGT only; Requires Throne of Bhaal </em><br /> 
     It's never made sense to me that Cromwell can forge armor out of red dragon
     scales, ankheg shells, and shadow dragon armor--but doesn't even acknowledge
     the white dragon scales you can acquire in Watcher's Keep. This component
@@ -533,8 +549,8 @@
     This component has been deprecated. If you wish for druids to use cleric
     spell and level progressions, use the Alter Druid Spell and Level Progression
     Tables instead.</p> 
-  <p><strong>Delay High Level Abilities</strong><br /> 
-    <em>Non-Tutu, Requires Throne of Bhaal </em><br /> 
+  <p><strong>Delay High Level Abilities</strong><br />
+    <em>BG2, BGT only; Requires Throne of Bhaal </em><br /> 
     High Level Abilities start at level 21 for all classes. </p> 
   <p><strong>Change Experience Point Cap</strong><br /> 
     In Baldur's Gate II, characters have a maximum experience point cap of 2,950,000
@@ -890,8 +906,8 @@
     granular so that the player can select exactly which level and spell progression
     tables they wish to use. A <a href="http://www.gibberlings3.net/readmes/readme-bg2tweaks_tables.html#druid">comparison
     of the spell progression tables</a> is available. </p> 
-  <p><strong>Triple-Class <acronym title="High-Level Ability">HLA</acronym> Tables</strong><br /> 
-    <em>Non-Tutu, Requires Throne of Bhaal </em><br /> 
+  <p><strong>Triple-Class <acronym title="High-Level Ability">HLA</acronym> Tables</strong><br />
+    <em>BG2, BGT only; Requires Throne of Bhaal </em><br />
     <em>Requires Change Experience Point Cap - Remove completely</em> <br /> 
     This component will max out the <acronym title="High-Level Ability">HLA</acronym> tables
     for fighter-mage-thieves and fighter-mage-clerics. Throne of Bhaal originally
@@ -937,7 +953,7 @@
       for skull trap, glyph of warding, and delayed blast fireball. This should
       make them more effective during fights. </p> 
   <p> <strong>Remove Summoning Cap for Celestials (Ardanis/GeN1e)</strong><br /> 
-    <em>Non-Tutu, Requires Throne of Bhaal</em> <br /> 
+    <em>BG2, BGT only; Requires Throne of Bhaal </em><br />
     Courtesy of Ardanis/GeN1e, this component will allow you to bypass the hardcoded
     limit of one active celestial (planetar or deva).</p> 
   <h3>Convenience Tweaks and/or Cheats</h3> 
@@ -1035,20 +1051,19 @@
   <p><strong>Unlimited Scroll Stacks</strong><br /> 
     This tweak will adjust the maximum number of scrolls in a stack to 9,999.
       This component will affect <em>all</em> items in the game, including items
-      introduced by mods. </p> 
-  <p><strong>Happy Patch </strong><br /> 
-    This component disables <acronym title="Non-Player Characters">NPCs</acronym> complaining
-    about the party's reputation. For example, evil characters will no longer
-    be unhappy in a high reputation party. This component will also disable the
-    BioWare <acronym title="Non-Player Characters">NPCs</acronym> from fighting
-    with one another: in Baldur's Gate, Kivan/Viconia, Tiax/Quayle, etc. and
-    Keldorn/Edwin, Valygar/Viconia, etc. in Baldur's Gate II. This component
-    is completely compatible with the Neutral Characters Make Happy Comments
-    at Mid-Range Reputation component. </p> 
+      introduced by mods.  </p>
+  <p><strong>Happy Patch </strong><br />
+  This provides many options for party unity. First, the player can control party complaints through one of three options:</p>
+  <ul>
+    <li>NPCs never get angry about reputation</li>
+    <li>NPCs get angry, but never leave</li>
+    <li>NPCs remain neutral, never getting happy or angry</li>
+  </ul>
   <p>Please note that installing Virtue with this component will essentially
     nullify it. Virtue changes reputation checks to check Virtue instead, so
     this component will be changed to prevent your party members leaving due
-    to Virtue--but the kicker is that they'll now leave due to reputation. </p> 
+  to Virtue--but the kicker is that they'll now leave due to reputation. </p>
+  <p>On top of these options, the player can install a component to prevent party members from fighting and a different component to prevent the Aerie-Haer'Dalis romance from starting.  </p>
   <p><strong>Neutral Characters Make Happy Comments at Mid-Range Reputation (Luiz) </strong><br /> 
     Every joinable <acronym title="Non-Player Character">NPC</acronym> has lines
     they say when they're happy, ambivalent, or upset about the party's reputation.
@@ -1057,7 +1072,7 @@
     alters the reputation table so that they are now happy at middle of the road
     values, so you can now hear lines from neutral <acronym title="Non-Player Characters">NPCs</acronym> which
     were previously not available. This component is completely compatible with
-    any variant of the Happy Patch.</p> 
+  any variant of the Happy Patch.</p> 
   <p>Please note that installing Virtue with this component will essentially
     nullify it. </p> 
   <p> <strong>No Traps or Locks (Weimer)</strong><br /> 
@@ -1071,9 +1086,9 @@
       able to open early&quot; can now be bashed open early--don't do that if
       it will annoy you. </p> 
   <p><strong>Faster Chapter 1&amp;2 Cut-Scenes &amp; Dreams (Karzak, Blucher,
-      aVENGER, Weimer) </strong><br /> 
-    <em>Non-Tutu</em><br /> 
-    If you're replaying the game for the Nth time, this component saves precious
+      aVENGER, Weimer) </strong><br />
+      <em>BG2, BGT only<br />
+      </em>    If you're replaying the game for the Nth time, this component saves precious
     minutes. In general this skips or shortens cut-scenes and dream sequences.
     You can also speed up your first encounter with Gaelan Bayle by saying (3) &quot;Yes,
     show me to your home.&quot; and then (5) &quot;Very well, I'll be back with
@@ -1084,26 +1099,26 @@
     lines from Neeber and Irenicus and Imoen leaving happily together after the
     party escaped to the Promenade. </p> 
   <p><strong>Invisible Cloak of Mirroring / Spell Trap and Physical Mirror (Weimer)</strong> <br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only </em><br />
     This turns off that huge glowing white wiffle ball animation for the <acronym title="Throne of Bhaal">ToB</acronym> Cloak
     of Mirroring and the Spell Trap spell as well as the glowing disc for physical
     mirror effects (e.g. Balduran's Shield, Shield of Reflection). </p> 
-  <p><strong>Keep Drizzt's Loot, Disable Malchor Harpell (Weimer)</strong> <br /> 
-    <em>Non-Tutu</em><br /> 
+  <p><strong>Keep Drizzt's Loot, Disable Malchor Harpell (Weimer)</strong> <br />
+    <em>BG2, BGT only </em><br />
     If you kill Drizzt and take his stuff, Malchor Harpell appears and takes
     it back. This would make more sense in <acronym title="Baldur's Gate">BG</acronym> where
     his loot was actually powerful. By that point in <acronym title="Shadows of Amn">SoA</acronym>,
     Drizzt's loot is mostly worthless and Malchor feels heavy-handed and out
     of place. </p> 
   <p><strong>No Drow Avatars on Party In Underdark (Weimer)</strong> <br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only </em><br />
     Adalon the Silver Dragon normally changes the party to look like drow cosmetically.
     Unfortunately, the game engine has a number of bugs related to this that
     cause the <acronym title="Player Characters">PCs</acronym> to &quot;stutter&quot; and &quot;stop
     walking&quot; and whatnot (especially if they have regeneration items). This
     disables the cosmetic drow avatar bit only: the plot remains unchanged. </p> 
   <p><strong>Romance Cheats (Sabre, Richardson, Weimer)</strong> <br /> 
-    <em>Non-Tutu</em><br /> 
+    <em>BG2, BGT only </em><br />
     This component allows greater flexibility with the original BioWare romances.
     Please note that the multi-romance option may cause stuttering when used
     in conjunction with a third-party mod romance. The player can choose five
@@ -1148,7 +1163,7 @@
   <h3>Joinable <acronym title="Non-Player Character">NPC</acronym> Tweaks </h3> 
   <p>Components in this category directly affect joinable <acronym title="Non-Player Characters">NPCs</acronym>. </p> 
   <p><strong>Adjust Evil Joinable <acronym title="Non-Player Character">NPC</acronym> Reactions</strong><br /> 
-    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym> Only</em><br /> 
+    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT, BGEE</acronym> Only</em><br /> 
     In Baldur's Gate, most <acronym title="Non-Player Characters">NPCs</acronym> use
     reaction rolls to determine their dialogue with the <acronym title="Player Character">PC</acronym>.
     Reactions rolls are <acronym title="20-sided die">d20</acronym> plus adjustments
@@ -1160,7 +1175,7 @@
     be more favorable. This doesn't mean that Viconia still won't leave without
     joining, but it makes it less likely. </p> 
   <p><strong>Improved Fate Spirit Summoning</strong><br /> 
-    <em>Non-Tutu, Requires Throne of Bhaal</em> <br /> 
+    <em> <em>BG2, BGT only; </em>    Requires Throne of Bhaal</em> <br /> 
     This component aims to make the Fate Spirit summoning a bit more consistent
     within the game world. An extra condition is added for summoning <acronym title="Non-Player Characters">NPCs</acronym> from
     the Fate Spirit in the pocket plane: you must have met them sometime in your
@@ -1231,7 +1246,7 @@
       18 Wisdom, as she has in <acronym title="Baldur's Gate II">BG2</acronym></li> 
   </ul> 
   <p><strong>Make Khalid a Fighter-Mage (Domi) </strong><br /> 
-    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym> Only</em><br /> 
+    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym>, BGEE Only</em><br /> 
     This component will change Khalid into a multi-classed fighter-mage, and
     includes a short dialogue. The changes will only show up in your game if
     you have not met Khalid yet. </p> 
@@ -1239,18 +1254,19 @@
     can also do this, and probably in a much slicker fashion. At the time of
     this release, it's currently in beta. </p> 
   <p><strong>Make Montaron an Assassin (Andyr)</strong><br /> 
-    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym> Only</em><br /> 
+    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym>, BGEE Only</em><br />
     This component changes Montaron into an Assassin. The changes will only show
     up in your game if you have not met Montaron yet. </p> 
   <p>Note that the <a href="http://www.gibberlings3.net/lev1npcs/">Level 1 <acronym title="Non-Player Characters">NPCs</acronym></a> mod
     can also do this, and probably in a much slicker fashion. At the time of
     this release, it's currently in beta. </p> 
-  <p><strong>Change Korgan to Neutral Evil Alignment </strong><br /> 
+  <p><strong>Change Korgan to Neutral Evil Alignment </strong><br />
+    <em>BG2, <acronym title="Baldur's Gate Trilogy">BGT</acronym> Only</em><br /> 
     A player request, this component alters Korgan's alignment to Neutral Evil
       to better reflect his actions and attitude ingame. The changes will only
       show up in your game if you have not met Korgan yet. </p> 
   <p><strong>Give Kagain A Legal Constitution Score of 19</strong><br /> 
-    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym> Only</em><br /> 
+    <em>Tutu, <acronym title="Baldur's Gate Trilogy">BGT</acronym>, BGEE Only</em><br />
     Just as the title implies, this component will lower Kagain's constitution
     from his current value of 20 to the dwarven maximum of 19. The changes will
     only show up in your game if you have not met Kagain yet. </p> 
@@ -1338,9 +1354,14 @@
 </div> 
 <h2>Credits and Copyright Information</h2> 
 <div class="section"> 
-  <p>This mod may not be sold, published, compiled or redistributed in any form
-    without the consent of its authors. <acronym title="Baldur's Gate II">BG2</acronym> Tweak
-    Pack is &copy;2006, 2007 CamDawg and Idobek.</p> 
+  <p>The modding community for the Infinity Engine has been going strong for
+    more than 10 years now, and is the culmination of thousands of unpaid modding
+    hours by fellow fans of the game. Modders produce their best work and players
+  get the best, well-supported mods when we all work together. </p>
+  <p> There are two big ways to upset this harmony. One is to claim someone else's
+    work as your own. The second is to host and redistribute a mod without permission
+    from the author(s). </p>
+  <p> Be kind to your fellow players and modders. Don't do either. </p>
 </div> 
 <h2>Version History</h2> 
 <div class="section">
