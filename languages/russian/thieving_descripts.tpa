@@ -1,4 +1,4 @@
-DEFINE_PATCH_MACRO ~thieving_descripts_russian~ BEGIN
+DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
   REPLACE_TEXTUALLY ~^[ %tab%]*Вскрытие замков:.+$[%mnl%%lnl%%wnl%]+~ ~~
   REPLACE_TEXTUALLY ~^[ %tab%]*Нахождение и обезвреживание ловушек:.+$[%mnl%%lnl%%wnl%]+~ ~~

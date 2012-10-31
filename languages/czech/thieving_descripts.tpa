@@ -1,4 +1,4 @@
-DEFINE_PATCH_MACRO ~thieving_descripts_czech~ BEGIN
+DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
   REPLACE_TEXTUALLY ~^[ %tab%]*Otevírání zámků:.+$[%mnl%%lnl%%wnl%]+~ ~~
   REPLACE_TEXTUALLY ~^[ %tab%]*Najdi pasti:.+$[%mnl%%lnl%%wnl%]+~ ~~

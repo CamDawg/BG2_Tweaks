@@ -1,4 +1,4 @@
-DEFINE_PATCH_MACRO ~thieving_descripts_korean~ BEGIN
+DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
   /*
   REPLACE_TEXTUALLY ~^[ %tab%]*Lock Picking:.+$[%mnl%%lnl%%wnl%]+~ ~~

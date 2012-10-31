@@ -1,4 +1,4 @@
-DEFINE_PATCH_MACRO ~arcane_descripts_korean~ BEGIN
+DEFINE_PATCH_MACRO ~arcane_descripts~ BEGIN
 
 //  REPLACE_TEXTUALLY ~\(Weight:[ %tab%]*[0-9]+\)~
 //  ~\1

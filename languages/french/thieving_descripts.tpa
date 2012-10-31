@@ -1,4 +1,4 @@
-DEFINE_PATCH_MACRO ~thieving_descripts_french~ BEGIN
+DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
   REPLACE_TEXTUALLY ~^[ %tab%]*Crochetage:.+$[%mnl%%lnl%%wnl%]+~ ~~
   REPLACE_TEXTUALLY ~^[ %tab%]*Trouver/désamorcer les pièges:.+$[%mnl%%lnl%%wnl%]+~ ~~

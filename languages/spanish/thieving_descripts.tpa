@@ -1,4 +1,4 @@
-DEFINE_PATCH_MACRO ~thieving_descripts_spanish~ BEGIN
+DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
   REPLACE_TEXTUALLY ~^[ %tab%]*Abrir cerraduras:.+$[%mnl%%lnl%%wnl%]+~ ~~
   REPLACE_TEXTUALLY ~^[ %tab%]*Encontrar trampas:.+$[%mnl%%lnl%%wnl%]+~ ~~

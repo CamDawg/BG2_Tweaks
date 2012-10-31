@@ -6,24 +6,25 @@
 194 - Tower Shield
 200 - Leather
 
-  // 200 and below are ignored by thieving tweaks
+  200 and below are ignored by thieving tweaks
 
 201 - Chainmail
+202 - special studded leather, don't mess with stealth
 203 - Full Plate
 204 - Hide Armor
 205 - Plate Mail
 206 - Scale Mail
 207 - Splint Mail
 208 - Studded Leather
+209 - padded
 
-// 210 and above are ignored by arcane tweaks
+  300 and above are ignored by arcane tweaks
 
-210 - special chain that allows casting (but is not elven), don't mess with stealth
-211 - special studded leather that allows casting, don't mess with stealth
-212 - Elven Chainmail
-213 - special studded leather that allows casting
-214 - special chain that allows casting (but is not elven)
-215 - special plate that allows casting
+300 - Elven Chainmail
+301 - special chain that allows casting (but is not elven), don't mess with stealth
+302 - special studded leather that allows casting
+303 - special chain that allows casting (but is not elven)
+304 - special plate that allows casting
 */
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_armor BEGIN
@@ -305,6 +306,15 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_armor BEGIN
   ~slayer3~  => 201  // jet'laya's chainmail (chain mail armour)
   ~tamchain~ => 201
   ~vischan1~ => 201
+  
+  // studded leather that provides HiS bonii
+  ~_leat08~  => 202 // shadow armor (shadow studded armour with +15% hide in shadows)
+  ~leat08~   => 202 // shadow armor (shadow studded armour with +15% hide in shadows)
+  ~leat08a~  => 202 // improved shadow armor (shadow studded armour with +15% hide in shadows)
+  ~ntleat01~ => 202 // improved shadow armor (studded leather armour, +15% hide in shadows)
+  ~m#asleat~ => 202 // apprentice shadow armor (studded leather armour, +5% hide in shadows)
+  ~sd_vs~    => 202 // vengeful shadows (studded leather armour, +10% hide in shadows)
+  ~ucmgle01~ => 202 // woodland armor +6 (studded leather, druid usable, +20% bonus to hide in shadows)
 
   // full plate mail
   ~_plat04~  => 203
@@ -557,75 +567,67 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_armor BEGIN
   ~u#leat02~ => 208
   ~visleat2~ => 208
 
-  // chain special
-  ~o!bom002~ => 210 // ranger mail +5 (chain mail armour, allows hide/move silently to be used unrestricted)
-  
-  //
-  ~_leat08~  => 211
-  ~leat08~   => 211
-  ~leat08a~  => 211 // improved shadow armor (shadow studded armour with +15% hide in shadows)
-  ~m#asleat~ => 211 // apprentice shadow armor (studded leather armour, +5% hide in shadows)
-  ~ntleat01~ => 211 // improved shadow armor (studded leather armour, +15% hide in shadows)
-  ~sd_vs~    => 211 // vengeful shadows (studded leather armour, +10% hide in shadows)
-  ~ucmgle01~ => 211 // woodland armor +6 (studded leather, druid usable, +20% bonus to hide in shadows)
-
   // elven chain
-  ~a!bchan1~ => 212
-  ~bsingchn~ => 212 // mirathar (bladesinger chainmail)
-  ~c2chan01~ => 212
-  ~chan12~   => 212
-  ~chan13~   => 212
-  ~chan14~   => 212
-  ~chan15~   => 212
-  ~chan16~   => 212
-  ~chan19~   => 212
-  ~chands06~ => 212 // elven chainmail +1 (elven chain mail)
-  ~clolth~   => 212
-  ~drowchn1~ => 212 // drow adamantite mesh armor +1 (drow mesh armour)
-  ~drowchn2~ => 212 // drow adamantite mesh armor +2 (drow mesh armour)
-  ~drowchn3~ => 212 // drow adamantite mesh armor +3 (drow mesh armour)
-  ~dsjearm~  => 212
-  ~dskorim~  => 212
-  ~dwchan01~ => 212
-  ~dwchan02~ => 212
-  ~echan01~  => 212 // elven chainmail +2 (elven chainmail)
-  ~echan02~  => 212 // underdark mail +1 (elven chainmail)
-  ~efml01~   => 212
-  ~fwchan02~ => 212
-  ~fwchan03~ => 212
-  ~gcmch01~  => 212
-  ~illas04~  => 212
-  ~ntchan04~ => 212 // elven chainmail of sorcery (elven chainmail)
-  ~ntchan06~ => 212 // chainmail of the firewine (elven chainmail)
-  ~pchan~    => 212
-  ~rr#chn01~ => 212 // dark elven chain (elven chain)
-  ~scal04~   => 212
-  ~sgchan1~  => 212
-  ~sgchan2~  => 212
-  ~tzchan01~ => 212
-  ~u#chan01~ => 212
-  ~u#chan07~ => 212 // elven chainmail of the hand +3
-  ~ucmgch01~ => 212 // drow chain +3 (elven chain mail, can cast spells faster too, does not decay in sunlight)
-  ~ucmgch02~ => 212 // drow admantine chain +5 (drow elven chain mail, does not decay on surface)
-  ~x#garch~  => 212
-  ~x#garch2~ => 212
+  ~a!bchan1~ => 300
+  ~bsingchn~ => 300 // mirathar (bladesinger chainmail)
+  ~c2chan01~ => 300
+  ~chan12~   => 300
+  ~chan13~   => 300
+  ~chan14~   => 300
+  ~chan15~   => 300
+  ~chan16~   => 300
+  ~chan19~   => 300
+  ~chands06~ => 300 // elven chainmail +1 (elven chain mail)
+  ~clolth~   => 300
+  ~drowchn1~ => 300 // drow adamantite mesh armor +1 (drow mesh armour)
+  ~drowchn2~ => 300 // drow adamantite mesh armor +2 (drow mesh armour)
+  ~drowchn3~ => 300 // drow adamantite mesh armor +3 (drow mesh armour)
+  ~dsjearm~  => 300
+  ~dskorim~  => 300
+  ~dwchan01~ => 300
+  ~dwchan02~ => 300
+  ~echan01~  => 300 // elven chainmail +2 (elven chainmail)
+  ~echan02~  => 300 // underdark mail +1 (elven chainmail)
+  ~efml01~   => 300
+  ~fwchan02~ => 300
+  ~fwchan03~ => 300
+  ~gcmch01~  => 300
+  ~illas04~  => 300
+  ~ntchan04~ => 300 // elven chainmail of sorcery (elven chainmail)
+  ~ntchan06~ => 300 // chainmail of the firewine (elven chainmail)
+  ~pchan~    => 300
+  ~rr#chn01~ => 300 // dark elven chain (elven chain)
+  ~scal04~   => 300
+  ~sgchan1~  => 300
+  ~sgchan2~  => 300
+  ~tzchan01~ => 300
+  ~u#chan01~ => 300
+  ~u#chan07~ => 300 // elven chainmail of the hand +3
+  ~ucmgch01~ => 300 // drow chain +3 (elven chain mail, can cast spells faster too, does not decay in sunlight)
+  ~ucmgch02~ => 300 // drow admantine chain +5 (drow elven chain mail, does not decay on surface)
+  ~x#garch~  => 300
+  ~x#garch2~ => 300
+
+  // chain special
+  ~o!bom002~ => 301 // ranger mail +5 (chain mail armour, allows hide/move silently to be used unrestricted)
 
   // special studded leather that only gets thieving penalties
-  ~a!bleat1~ => 213 // from s&s
-  ~a!bleat2~ => 213 // from s&s
-  ~dskearm~  => 213 // from dsotsc
-  ~ntleat02~ => 213 // from ntotsc
-  ~ntleat03~ => 213 // from ntotsc
+  ~a!bleat1~ => 302 // from s&s
+  ~a!bleat2~ => 302 // from s&s
+  ~dskearm~  => 302 // from dsotsc
+  ~ntleat02~ => 302 // from ntotsc
+  ~ntleat03~ => 302 // from ntotsc
 
   // special chain that only gets thieving penalties (but is not elven)
-  ~j#indi01~ => 214 // indi's chain vest (chainmail, can cast spells without penalties)
-  ~o!bom004~ => 214 // abdel's mage chain (chain mail armour, 20% chance of miscast magic)
-  ~o!bom005~ => 214 // abdel's mage chain +1 (chain mail armour, 30% chance of miscast magic)
-  ~o!bom006~ => 214 // abdel's mage chain +2 (chain mail armour, 40% chance of miscast magic)
-  ~s!chan02~ => 214 // eternal melody +5 (chain armour, can cast spells in it for bards)
+  ~j#indi01~ => 303 // indi's chain vest (chainmail, can cast spells without penalties)
+  ~o!bom004~ => 303 // abdel's mage chain (chain mail armour, 20% chance of miscast magic)
+  ~o!bom005~ => 303 // abdel's mage chain +1 (chain mail armour, 30% chance of miscast magic)
+  ~o!bom006~ => 303 // abdel's mage chain +2 (chain mail armour, 40% chance of miscast magic)
+  ~s!chan02~ => 303 // eternal melody +5 (chain armour, can cast spells in it for bards)
 
   // special plate that only gets thieving penalties
-  ~o!bom007~ => 215 // abdel's mage plate (plate armour, 30% chance of miscast magic)
-  ~o!bom008~ => 215 // abdel's mage plate +1 (plate armour, 40% chance of miscast magic)
-  ~o!bom009~ => 215 // abdel's mage plate +2 (plate armour, 50% chance of miscast magic)
+  ~o!bom007~ => 304 // abdel's mage plate (plate armour, 30% chance of miscast magic)
+  ~o!bom008~ => 304 // abdel's mage plate +1 (plate armour, 40% chance of miscast magic)
+  ~o!bom009~ => 304 // abdel's mage plate +2 (plate armour, 50% chance of miscast magic)
+
 END

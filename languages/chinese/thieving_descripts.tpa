@@ -1,4 +1,4 @@
-DEFINE_PATCH_MACRO ~thieving_descripts_english~ BEGIN
+DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
   REPLACE_TEXTUALLY ~^[ %tab%]*¿ªËø£º.+$[%mnl%%lnl%%wnl%]+~ ~~
   REPLACE_TEXTUALLY ~^[ %tab%]*ÕÒÑ°ÏÝÚå£º.+$[%mnl%%lnl%%wnl%]+~ ~~

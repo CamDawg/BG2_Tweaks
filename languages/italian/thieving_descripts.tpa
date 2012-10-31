@@ -1,4 +1,4 @@
-DEFINE_PATCH_MACRO ~thieving_descripts_italian~ BEGIN
+DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
   REPLACE_TEXTUALLY ~^[ %tab%]*Scassinare Serrature:.+$[%mnl%%lnl%%wnl%]+~ ~~
   REPLACE_TEXTUALLY ~^[ %tab%]*Scoprire\Rimuovere Trappole:.+$[%mnl%%lnl%%wnl%]+~ ~~
