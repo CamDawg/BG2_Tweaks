@@ -1,19 +1,33 @@
 DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
-  REPLACE_TEXTUALLY ~^[ %tab%]*Abrir cerraduras:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~^[ %tab%]*Encontrar trampas:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~^[ %tab%]*Fallar Magia Arcana:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~\(Peso:[ %tab%]*[0-9]+\)~
-  ~\1
-Abrir cerraduras: -%penalty_lock%CDPERCENTAGE
-Encontrar/desactivar trampas: -%penalty_trap%CDPERCENTAGE
-Robar: -%penalty_pickpocket%CDPERCENTAGE~
-  PATCH_IF ("%patch_hide%" != 2) BEGIN
-    REPLACE_TEXTUALLY ~^[ %tab%]*Esconderse en las sombras:.+$[%mnl%%lnl%%wnl%]+~ ~~
-    REPLACE_TEXTUALLY ~^[ %tab%]*Moverse sigilosamente:.+$[%mnl%%lnl%%wnl%]+~ ~~
-    REPLACE_TEXTUALLY ~\(Peso:[ %tab%]*[0-9]+\)~
+  PATCH_IF ("%penalty_lock%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Abrir cerraduras:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Peso:[ %TAB%]*[0-9]+\)~
     ~\1
-Esconderse en las sombras: -%penalty_hide%CDPERCENTAGE
+Abrir cerraduras: -%penalty_lock%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_trap%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Encontrar trampas:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Peso:[ %TAB%]*[0-9]+\)~
+    ~\1
+Encontrar/desactivar trampas: -%penalty_trap%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_pickpocket%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Robar:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Peso:[ %TAB%]*[0-9]+\)~
+    ~\1
+Robar: -%penalty_pickpocket%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_hide%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Esconderse en las sombras:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Peso:[ %TAB%]*[0-9]+\)~
+    ~\1
+Esconderse en las sombras: -%penalty_hide%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_silent%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Moverse sigilosamente:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Peso:[ %TAB%]*[0-9]+\)~
+    ~\1
 Moverse sigilosamente: -%penalty_silent%CDPERCENTAGE~
   END
 

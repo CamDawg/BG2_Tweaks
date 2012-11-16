@@ -9,10 +9,10 @@
      @0 = ~NPC Tweaks~
      @1 = ~This step may take a few moments ...~
      @2 = ~The Add Bags of Holding to BG is required for this component.~
-     @3 = ~Requires 'Allow Arcane Spellcasting in Armor' component~
+//     @3 = ~Requires 'Allow Arcane Spellcasting in Armor' component~
      @4 = ~Convenience Tweaks/Cheats~
      @5 = ~The Exotic Item Pack is required for this component.~
-     @6 = ~Requires 'Allow Stealth and Thieving Abilities in Heavy Armor' component~
+//     @6 = ~Requires 'Allow Stealth and Thieving Abilities in Heavy Armor' component~
      @7 = ~This component is not available in your language.~
      @8 = ~This component is only for BGT.~
      @9 = ~Rule Changes~
@@ -26,13 +26,14 @@
             or superceded by one of your already installed mods.~
     @17 = ~Requires the Make +x/+y Weapons Consistent component to be installed.~
     @18 = ~This component has been deprecated.~
-    @19 = ~Cam's House Rules~
-    @20 = ~View the readme?
-  a) Yes
-  b) No~
+//    @19 = ~Cam's House Rules~
+//    @20 = ~View the readme?
+//  a) Yes
+//  b) No~
     @21 = ~Requires the 'Change Experience Point Cap: Remove Experience Cap' component.~
     @22 = ~This component is not available for Baldur's Gate: Enhanced Edition.~
     @23 = ~This component is only for Tutu or Baldur's Gate: Enhanced Edition.~
+    @24 = ~This component is incompatible with another mod already installed.~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\

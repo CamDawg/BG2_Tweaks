@@ -1,17 +1,33 @@
 DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
-  REPLACE_TEXTUALLY ~^[ %tab%]*Schlösser öffnen:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~^[ %tab%]*Fallen finden/entschärfen:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~^[ %tab%]*Taschendiebstahl:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~\(Gewicht:[ %tab%]*[0-9]+\)~
-  ~\1
-Schlösser öffnen: -%penalty_lock%CDPERCENTAGE
-Fallen finden/entschärfen: -%penalty_trap%CDPERCENTAGE
-Taschendiebstahl: -%penalty_pickpocket%CDPERCENTAGE~
-  PATCH_IF ("%patch_hide%" != 2) BEGIN
-    REPLACE_TEXTUALLY ~\(Gewicht:[ %tab%]*[0-9]+\)~
+  PATCH_IF ("%penalty_lock%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Schlösser öffnen:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Gewicht:[ %TAB%]*[0-9]+\)~
     ~\1
-Im Schatten verstecken: -%penalty_hide%CDPERCENTAGE
+Schlösser öffnen: -%penalty_lock%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_trap%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Fallen finden/entschärfen:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Gewicht:[ %TAB%]*[0-9]+\)~
+    ~\1
+Fallen finden/entschärfen: -%penalty_trap%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_pickpocket%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Taschendiebstahl:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Gewicht:[ %TAB%]*[0-9]+\)~
+    ~\1
+Taschendiebstahl: -%penalty_pickpocket%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_hide%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Im Schatten verstecken:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Gewicht:[ %TAB%]*[0-9]+\)~
+    ~\1
+Im Schatten verstecken: -%penalty_hide%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_silent%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Schleichen:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Gewicht:[ %TAB%]*[0-9]+\)~
+    ~\1
 Schleichen: -%penalty_silent%CDPERCENTAGE~
   END
 

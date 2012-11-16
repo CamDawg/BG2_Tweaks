@@ -1,7 +1,7 @@
 BACKUP ~bg2_tweaks/backup~ // location to store files for
 AUTHOR ~pcamagna@yahoo.com~ // email address displayed if install fails
 
-VERSION ~v9.06~
+VERSION ~v9.07~
 
 README ~bg2_tweaks/readme-bg2tweaks.html~
 
@@ -173,6 +173,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~ // Viconia skin color change
 
 BEGIN @5000 DESIGNATED 50
 GROUP @11
+REQUIRE_PREDICATE NOT MOD_IS_INSTALLED ~1pp/1pp.tp2~ ~113~ @24 // don't install if 1pp smart avatar/armor switching installed
 
 // adds ToB trigger/actions to SoA
 INCLUDE ~bg2_tweaks/lib/tob2soa.tpa~
@@ -423,7 +424,7 @@ INCLUDE ~bg2_tweaks/lib/common_armor_list.tpa~ // common armor types
 
 ACTION_PHP_EACH cd_armor AS item => type BEGIN
 
-  ACTION_IF (((type = 201) OR (type = 301) OR (type = 303)) AND (FILE_EXISTS_IN_GAME "%item%.itm")) BEGIN // chain mail
+  ACTION_IF (((type = 130) OR (type = 203) OR (type = 303) OR (type = 330)) AND (FILE_EXISTS_IN_GAME "%item%.itm")) BEGIN // chain mail
 
     COPY_EXISTING ~%item%.itm~ ~override~
       READ_ASCII 0x44 icon ELSE 0
@@ -435,7 +436,7 @@ ACTION_PHP_EACH cd_armor AS item => type BEGIN
   
   END
 
-  ACTION_IF ((type = 300) AND (FILE_EXISTS_IN_GAME "%item%.itm")) BEGIN // elven chain
+  ACTION_IF ((type = 304) AND (FILE_EXISTS_IN_GAME "%item%.itm")) BEGIN // elven chain
 
     COPY_EXISTING ~%item%.itm~ ~override~
       READ_ASCII 0x44 icon ELSE 0
@@ -447,7 +448,7 @@ ACTION_PHP_EACH cd_armor AS item => type BEGIN
 
   END
 
-  ACTION_IF ((type = 200) AND (FILE_EXISTS_IN_GAME "%item%.itm")) BEGIN // leather
+  ACTION_IF (((type = 200) OR (type = 300)) AND (FILE_EXISTS_IN_GAME "%item%.itm")) BEGIN // leather
 
     COPY_EXISTING ~%item%.itm~ ~override~
       READ_ASCII 0x44 icon ELSE 0
@@ -497,6 +498,7 @@ END
 
 BEGIN @12000 DESIGNATED 120
 GROUP @11
+REQUIRE_PREDICATE NOT MOD_IS_INSTALLED ~1pp/1pp.tp2~ ~113~ @24 // don't install if 1pp smart avatar/armor switching installed
 
 ACTION_FOR_EACH file IN lcarmor lcarmor2 lcarmorc lcarmorf lcarmort lcrobe lcrobe2 BEGIN
 
@@ -3902,7 +3904,6 @@ COPY_EXISTING ~sw1h01.itm~ ~override/cdt02100.g3~
 ACTION_CLEAR_ARRAY cd_armor
 INCLUDE ~bg2_tweaks/languages/%LANGUAGE%/thieving_descripts.tpa~ // language-specific text replacement macroes
 INCLUDE ~bg2_tweaks/lib/common_armor_list.tpa~ // common armor types needed for both components
-INCLUDE ~bg2_tweaks/lib/extra_regexp_vars.tpa~ // needed for descript matching
 INCLUDE ~bg2_tweaks/lib/thieving_to_50.tpa~    // extend bard, ranger pickpocketing to 200 and levels to 50
 
 // to get unarmored bonuses to work, bonuses are added in the race bonus tables
@@ -3921,9 +3922,9 @@ COPY_EXISTING ~skillrac.2da~ ~override~
   
 ACTION_PHP_EACH cd_armor AS item => type BEGIN
 
-  ACTION_IF ((type >= 200) AND (FILE_EXISTS_IN_GAME ~%item%.itm~)) BEGIN // ignore sub-200, these are thieving only
+  ACTION_IF ((type > 104) AND (FILE_EXISTS_IN_GAME ~%item%.itm~)) BEGIN // ignore shields
   
-    ACTION_IF (type = 200) BEGIN // leather
+    ACTION_IF ((type < 201) OR (type = 300) OR (type = 400)) BEGIN // leather, other misc armors that only need to offset unarmored bonuses
 
       // for leather or padded, add penalties to offset unarmored bonuses from race table
       COPY_EXISTING ~%item%.itm~ ~override~
@@ -3935,90 +3936,112 @@ ACTION_PHP_EACH cd_armor AS item => type BEGIN
 
       COPY_EXISTING ~%item%.itm~ ~override~
         SET patch_hide = 0
-        PATCH_IF ((type = 201) OR (type = 303)) BEGIN // chain mail, special chain that allows casting (but is not elven)
-          SET penalty_hide = 30
-          SET penalty_pickpocket = 40
-          SET penalty_lock = 15
-          SET penalty_trap = 15
-          SET penalty_silent = 40
+        PATCH_IF ((type = 201) OR (type = 210) OR (type = 211) OR (type = 212) OR
+                  (type = 214) OR (type = 301) OR (type = 310)) BEGIN // studded leather
+          SET penalty_hide = 20
+          SET penalty_pickpocket = 30
+          SET penalty_lock = 10
+          SET penalty_trap = 10
+          SET penalty_silent = 20
         END ELSE
-        PATCH_IF (type = 203) BEGIN // full plate
-          SET penalty_hide = 95
-          SET penalty_pickpocket = 95
-          SET penalty_lock = 80
-          SET penalty_trap = 80
-          SET penalty_silent = 95
-        END ELSE
-        PATCH_IF (type = 204) BEGIN // hide
+        PATCH_IF ((type = 202) OR (type = 302)) BEGIN // hide
           SET penalty_hide = 20
           SET penalty_pickpocket = 60
           SET penalty_lock = 50
           SET penalty_trap = 50
           SET penalty_silent = 30
         END ELSE
-        PATCH_IF ((type = 205) OR (type = 304)) BEGIN // plate mail, special plate that allows casting
-          SET penalty_hide = 75
-          SET penalty_pickpocket = 75
-          SET penalty_lock = 40
-          SET penalty_trap = 40
-          SET penalty_silent = 80
-        END ELSE
-        PATCH_IF (type = 206) BEGIN // scale mail
-          SET penalty_hide = 50
-          SET penalty_pickpocket = 50
-          SET penalty_lock = 20
-          SET penalty_trap = 20
-          SET penalty_silent = 60
-        END ELSE
-        PATCH_IF (type = 207) BEGIN // splint mail
-          SET penalty_hide = 30
-          SET penalty_pickpocket = 40
-          SET penalty_lock = 15
-          SET penalty_trap = 25
-          SET penalty_silent = 40
-        END ELSE
-        PATCH_IF ((type = 208) OR (type = 302)) BEGIN // studded leather, special studded leather that allows casting
-          SET penalty_hide = 20
-          SET penalty_pickpocket = 30
-          SET penalty_lock = 10
-          SET penalty_trap = 10
-          SET penalty_silent = 20
-        END ELSE
-        PATCH_IF (type = 301) BEGIN // special chain that allows casting (but is not elven), don't mess with stealth
+        PATCH_IF ((type = 203) OR (type = 303) OR (type = 330)) BEGIN // chain mail
           SET penalty_hide = 30
           SET penalty_pickpocket = 40
           SET penalty_lock = 15
           SET penalty_trap = 15
           SET penalty_silent = 40
-          SET patch_hide = 2
         END ELSE
-        PATCH_IF (type = 202) BEGIN // special studded leather, don't mess with stealth
-          SET penalty_hide = 0
-          SET penalty_pickpocket = 30
-          SET penalty_lock = 10
-          SET penalty_trap = 10
-          SET penalty_silent = 20
-          SET patch_hide = 2
-        END ELSE BEGIN // elven chain mail
+        PATCH_IF ((type = 204) OR (type = 304)) BEGIN // elven chain mail
           SET penalty_hide = 10
           SET penalty_pickpocket = 20
           SET penalty_lock = 5
           SET penalty_trap = 5
           SET penalty_silent = 10
         END
-        PATCH_FOR_EACH opcode IN 59 90 91 92 144 BEGIN
-          LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = opcode END
+        PATCH_IF ((type = 205) OR (type = 305)) BEGIN // scale mail
+          SET penalty_hide = 50
+          SET penalty_pickpocket = 50
+          SET penalty_lock = 20
+          SET penalty_trap = 20
+          SET penalty_silent = 60
+        END ELSE
+        PATCH_IF ((type = 206) OR (type = 207) OR (type = 306) OR (type = 307)) BEGIN // splint, banded mail
+          SET penalty_hide = 30
+          SET penalty_pickpocket = 40
+          SET penalty_lock = 15
+          SET penalty_trap = 25
+          SET penalty_silent = 40
+        END ELSE
+        PATCH_IF ((type = 208) OR (type = 308)) BEGIN // plate mail
+          SET penalty_hide = 75
+          SET penalty_pickpocket = 75
+          SET penalty_lock = 40
+          SET penalty_trap = 40
+          SET penalty_silent = 80
+        END ELSE
+        PATCH_IF ((type = 209) OR (type = 309)) BEGIN // full plate
+          SET penalty_hide = 95
+          SET penalty_pickpocket = 95
+          SET penalty_lock = 80
+          SET penalty_trap = 80
+          SET penalty_silent = 95
+        END ELSE
+        PATCH_IF (type = 213) BEGIN // studded leather, use regular penalties plus an extra 25%
+          SET penalty_hide = 45
+          SET penalty_pickpocket = 55
+          SET penalty_lock = 35
+          SET penalty_trap = 35
+          SET penalty_silent = 45
         END
-        PATCH_IF (patch_hide = 0) BEGIN
+        PATCH_IF ((type = 211) OR (type = 212) OR (type = 310) OR (type = 330)) BEGIN // armor that shouln't get HiS changes
+          SET penalty_hide = 255
+        END
+//        PATCH_IF (type = 0) BEGIN // armor that shouln't get pickpocket changes
+//          SET penalty_pickpocket = 255
+//        END
+        PATCH_IF ((type = 212) OR (type = 214)) BEGIN // armor that shouln't get open locks changes
+          SET penalty_lock = 255
+        END
+        PATCH_IF (type = 214) BEGIN // armor that shouln't get find traps changes
+          SET penalty_trap = 255
+        END
+        PATCH_IF (type = 210) BEGIN // armor that shouln't get MS changes
+          SET penalty_silent = 255
+        END
+        LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 144 END // delete disable thieving buttons
+        PATCH_IF (penalty_hide != 255) BEGIN
           LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 275 END
           LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - penalty_hide - 5) timing = 2 END // extra 5 to offset unarmored bonus
         END ELSE BEGIN
-          LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = "-5" timing = 2 END // extra 5 to offset unarmored bonus
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = "-5"                   timing = 2 END // extra 5 to offset unarmored bonus
         END
-        LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59  target = 1 parameter1 = (0 - penalty_silent - 10)    timing = 2 END // extra 10 to offset unarmored bonus
-        LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 90  target = 1 parameter1 = (0 - penalty_lock)           timing = 2 END
-        LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 91  target = 1 parameter1 = (0 - penalty_trap)           timing = 2 END
-        LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92  target = 1 parameter1 = (0 - penalty_pickpocket - 5) timing = 2 END // extra 5 to offset unarmored bonus
+        PATCH_IF (penalty_pickpocket != 255) BEGIN
+          LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 92 END
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - penalty_pickpocket - 5) timing = 2 END // extra 5 to offset unarmored bonus
+        END ELSE BEGIN
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = "-5"                         timing = 2 END // extra 5 to offset unarmored bonus
+        END
+        PATCH_IF (penalty_trap != 255) BEGIN
+          LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 91 END
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 91  target = 1 parameter1 = (0 - penalty_trap)           timing = 2 END
+        END
+        PATCH_IF (penalty_lock != 255) BEGIN
+          LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 90 END
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 90  target = 1 parameter1 = (0 - penalty_lock)           timing = 2 END
+        END
+        PATCH_IF (penalty_silent != 255) BEGIN
+          LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 59 END
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59  target = 1 parameter1 = (0 - penalty_silent - 10)    timing = 2 END // extra 10 to offset unarmored bonus
+        END ELSE BEGIN
+          LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = "-10"                         timing = 2 END // extra 10 to offset unarmored bonus
+        END
         // adjust descriptions
         FOR (index = 0x50 ; index < 0x55 ; index = index + 0x04) BEGIN
           READ_LONG "%index%" "valid"
@@ -4072,7 +4095,6 @@ COPY_EXISTING ~sw1h01.itm~ ~override/cdt02120.g3~
 ACTION_CLEAR_ARRAY cd_armor
 INCLUDE ~bg2_tweaks/languages/%LANGUAGE%/arcane_descripts.tpa~ // language-specific text replacement macroes
 INCLUDE ~bg2_tweaks/lib/common_armor_list.tpa~ // common armor types needed for both components
-INCLUDE ~bg2_tweaks/lib/extra_regexp_vars.tpa~ // needed for descript matching
 
 ACTION_PHP_EACH cd_armor AS item => type BEGIN
 
@@ -4081,28 +4103,28 @@ ACTION_PHP_EACH cd_armor AS item => type BEGIN
     COPY_EXISTING ~%item%.itm~ ~override~
       LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete =  60 END
       LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 145 END
-      PATCH_IF ((type = 190) OR (type = 191)) BEGIN // buckler, small shield
+      PATCH_IF ((type = 100) OR (type = 101)) BEGIN // buckler, small shield
         SET patch_miscast = 5
       END ELSE
-      PATCH_IF ((type = 200) OR (type = 209)) BEGIN // leather, padded armor
+      PATCH_IF ((type = 199) OR (type = 200)) BEGIN // leather, padded armor
         SET patch_miscast = 10
       END ELSE
-      PATCH_IF ((type = 192) OR (type = 193) OR (type = 202) OR (type = 208)) BEGIN // medium/large shield, studded leather
+      PATCH_IF ((type = 102) OR (type = 103) OR (type = 110) OR (type = 201) OR (type > 209)) BEGIN // medium/large shield, studded leather
         SET patch_miscast = 15
       END ELSE
-      PATCH_IF (type = 204) BEGIN // hide armor
+      PATCH_IF (type = 202) BEGIN // hide armor
         SET patch_miscast = 20
       END ELSE
-      PATCH_IF (type = 206) BEGIN // scale armor
+      PATCH_IF (type = 205) BEGIN // scale armor
         SET patch_miscast = 25
       END ELSE
-      PATCH_IF (type = 201) BEGIN // chain armor
+      PATCH_IF ((type = 130) OR (type = 203)) BEGIN // chain armor
         SET patch_miscast = 30
       END ELSE
-      PATCH_IF (type = 203) BEGIN // full plate
+      PATCH_IF (type = 209) BEGIN // full plate
         SET patch_miscast = 35
       END ELSE
-      PATCH_IF ((type = 205) OR (type = 207)) BEGIN // plate mail, splint mail
+      PATCH_IF ((type = 206) OR (type = 207) OR (type = 208)) BEGIN // plate mail, banded mail, splint mail
         SET patch_miscast = 40
       END ELSE BEGIN // tower shield
         SET patch_miscast = 50
@@ -6996,9 +7018,10 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.are$~ ~override~
 BEGIN @314001 DESIGNATED 3140 // original EoU
 GROUP @4
 SUBCOMPONENT @314000 // faster chap 1&2 cutscenes
-REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~_sw1h01.itm~ @10 // non-Tutu
-REQUIRE_PREDICATE !GAME_IS ~bgt~ @10                        // Forbid installation on BGT
-REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~oh9350.are~  @22 // non-BGEE
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~_sw1h01.itm~ @10  // non-Tutu
+REQUIRE_PREDICATE !GAME_IS ~bgt~ @10                         // Forbid installation on BGT
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~oh9350.are~  @22  // non-BGEE
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~mrimrin1.itm~ @24 // imoen romance compatibility code
 
 // this file does nothing, it just allows other mods to detect this component
 COPY_EXISTING ~sw1h01.itm~ ~override/cdt03140.g3~
@@ -7019,10 +7042,11 @@ INCLUDE ~bg2_tweaks/lib/faster_start.tpa~
 BEGIN @314100 DESIGNATED 3141 // original EoU
 GROUP @4
 SUBCOMPONENT @314000 // faster chap 1&2 cutscenes
-REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~_sw1h01.itm~ @10 // non-Tutu
-REQUIRE_PREDICATE !GAME_IS ~bgt~ @10                        // Forbid installation on BGT
-REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~_sw1h01.itm~ @10 // non-Tutu
-REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~oh9350.are~  @22 // non-BGEE
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~_sw1h01.itm~ @10  // non-Tutu
+REQUIRE_PREDICATE !GAME_IS ~bgt~ @10                         // Forbid installation on BGT
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~_sw1h01.itm~ @10  // non-Tutu
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~oh9350.are~  @22  // non-BGEE
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~mrimrin1.itm~ @24 // imoen romance compatibility code
 
 // this file does nothing, it just allows other mods to detect this component
 COPY_EXISTING ~sw1h01.itm~ ~override/cdt03141.g3~

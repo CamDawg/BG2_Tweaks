@@ -1,17 +1,33 @@
 DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
-  REPLACE_TEXTUALLY ~^[ %tab%]*Otwieranie zamków:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~^[ %tab%]*Wykrywanie/usuwanie pu³apek:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~^[ %tab%]*Kradzie¿ kieszonkowe:.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~\(Waga:[ %tab%]*[0-9]+\)~
-  ~\1
-Otwieranie zamków: -%penalty_lock%CDPERCENTAGE
-Wykrywanie/usuwanie pu³apek: -%penalty_trap%CDPERCENTAGE
-Kradzie¿ kieszonkowe: -%penalty_pickpocket%CDPERCENTAGE~
-  PATCH_IF ("%patch_hide%" != 2) BEGIN
-    REPLACE_TEXTUALLY ~\(Waga:[ %tab%]*[0-9]+\)~
+  PATCH_IF ("%penalty_lock%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Otwieranie zamków:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Waga:[ %TAB%]*[0-9]+\)~
     ~\1
-Krycie w cieniu: -%penalty_hide%CDPERCENTAGE
+Otwieranie zamków: -%penalty_lock%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_trap%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Wykrywanie/usuwanie pu³apek:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Waga:[ %TAB%]*[0-9]+\)~
+    ~\1
+Wykrywanie/usuwanie pu³apek: -%penalty_trap%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_pickpocket%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Kradzie¿ kieszonkowe:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Waga:[ %TAB%]*[0-9]+\)~
+    ~\1
+Kradzie¿ kieszonkowe: -%penalty_pickpocket%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_hide%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Krycie w cieniu:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Waga:[ %TAB%]*[0-9]+\)~
+    ~\1
+Krycie w cieniu: -%penalty_hide%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_silent%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*Ciche chodzenie:.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(Waga:[ %TAB%]*[0-9]+\)~
+    ~\1
 Ciche chodzenie: -%penalty_silent%CDPERCENTAGE~
   END
 

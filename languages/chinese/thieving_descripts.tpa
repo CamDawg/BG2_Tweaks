@@ -1,19 +1,33 @@
 DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
 
-  REPLACE_TEXTUALLY ~^[ %tab%]*开锁：.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~^[ %tab%]*找寻陷阱：.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~^[ %tab%]*窃盗：.+$[%mnl%%lnl%%wnl%]+~ ~~
-  REPLACE_TEXTUALLY ~\(重量：[ %tab%]*[0-9]+\)~
+  PATCH_IF ("%penalty_lock%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*开锁：.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(重量：[ %TAB%]*[0-9]+\)~
     ~\1
-开锁： -%penalty_lock%CDPERCENTAGE
-找寻陷阱： -%penalty_trap%CDPERCENTAGE
+开锁： -%penalty_lock%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_trap%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*找寻陷阱：.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(重量：[ %TAB%]*[0-9]+\)~
+    ~\1
+找寻陷阱： -%penalty_trap%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_pickpocket%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*窃盗：.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(重量：[ %TAB%]*[0-9]+\)~
+    ~\1
 窃盗： -%penalty_pickpocket%CDPERCENTAGE~
-  PATCH_IF ("%patch_hide%" != 2) BEGIN
-    REPLACE_TEXTUALLY ~^[ %tab%]*阴影躲藏：.+$[%mnl%%lnl%%wnl%]+~ ~~
-    REPLACE_TEXTUALLY ~^[ %tab%]*无声行动：.+$[%mnl%%lnl%%wnl%]+~ ~~
-    REPLACE_TEXTUALLY ~\(重量：[ %tab%]*[0-9]+\)~
+  END
+  PATCH_IF ("%penalty_hide%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*阴影躲藏：.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(重量：[ %TAB%]*[0-9]+\)~
     ~\1
-阴影躲藏： -%penalty_hide%CDPERCENTAGE
+阴影躲藏： -%penalty_hide%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_silent%" != 255) BEGIN
+    REPLACE_TEXTUALLY ~^[ %TAB%]*无声行动：.+$[%MNL%%LNL%%WNL%]+~ ~~
+    REPLACE_TEXTUALLY ~\(重量：[ %TAB%]*[0-9]+\)~
+    ~\1
 无声行动： -%penalty_silent%CDPERCENTAGE~
   END
 

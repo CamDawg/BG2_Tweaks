@@ -182,7 +182,7 @@ DEFINE_MACRO_ACTION ~tb#tutu_weapprof~ BEGIN
       SET_2DA_ENTRY_LATER ~_#_#_#weapprof~ i 2 ~%Unused%~
       SET_2DA_ENTRY_LATER ~_#_#_#weapprof~ i 3 ~%Unused%~
     END
-    REPLACE_TEXTUALLY ~^[ %tab%]*ID[ %tab%]~ ~ID ID ~
+    REPLACE_TEXTUALLY ~^[ %TAB%]*ID[ %TAB%]~ ~ID ID ~
     REPLACE_TEXTUALLY ~^BASTARDSWORD ~  ~BOW_TUTU ~
     REPLACE_TEXTUALLY ~^LONGSWORD ~  ~SPIKED_TUTU ~
     REPLACE_TEXTUALLY ~^SHORTSWORD ~  ~SMALL_SWORD_TUTU ~
